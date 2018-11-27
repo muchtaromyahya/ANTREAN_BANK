@@ -38,7 +38,7 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
         getContentPane().add(jenisAwalKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 250, 40));
         getContentPane().add(upgrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 250, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geryn\\Documents\\GitHub\\tubespbo-1\\TUBES\\background\\15.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\15.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 938, 664));
 

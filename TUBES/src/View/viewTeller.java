@@ -35,7 +35,7 @@ public class viewTeller extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geryn\\Documents\\GitHub\\tubespbo-1\\TUBES\\background\\8.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\8.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 683));
 
         setoran.addActionListener(new java.awt.event.ActionListener() {

@@ -18,25 +18,25 @@ import java.util.logging.Logger;
  *
  * @author geryn
  */
-public class Database {
+public class DatabaseCS {
 private Connection conn = null;
     private Statement stmt = null;
     private ResultSet rs = null;
     private ArrayList<Customer> customer = new ArrayList<>();
 
-    public Database() {
+    public DatabaseCS() {
         loadCustomer();
     }
     
     public void connect(){
         try {
-            String url = "jdbc:mysql://localhost/bank";
+            String url = "jdbc:mysql://localhost/customer_service";
             String user = "root";
             String pass = "";
             conn = DriverManager.getConnection(url, user, pass);
             stmt = conn.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -45,7 +45,7 @@ private Connection conn = null;
             conn.close();
             stmt.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -55,7 +55,7 @@ private Connection conn = null;
             int rows = stmt.executeUpdate(query);
             if (rows > 0) cek = true;
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cek;
     }
@@ -66,10 +66,10 @@ private Connection conn = null;
             String query = "SELECT * FROM customer";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                customer.add(new Customer(rs.getString("nama"),rs.getString("nik"),rs.getString("noRek"),rs.getString("alamat"),rs.getString("pendidikan"),rs.getString("noHp"),rs.getString("tglLahir"),rs.getString("wali")));
+                customer.add(new Customer(rs.getString("nik"),rs.getString("nama_lengkap"),rs.getString("nama_wali"),rs.getString("tgl_lahir"),rs.getString("telp"),rs.getString("alamat"),rs.getString("no_rek"),rs.getString("pendidikan")));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
         }
         disconnect();
     }

@@ -29,6 +29,7 @@ public class Awal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         BACKGROUND = new javax.swing.JLabel();
         customerService = new javax.swing.JButton();
         teller = new javax.swing.JButton();
@@ -37,7 +38,15 @@ public class Awal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 255, 153));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BACKGROUND.setIcon(new javax.swing.ImageIcon("C:\\Users\\geryn\\Documents\\GitHub\\tubespbo-1\\TUBES\\background\\7.jpg")); // NOI18N
+        jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        BACKGROUND.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\7.jpg")); // NOI18N
         BACKGROUND.setText(" ");
         getContentPane().add(BACKGROUND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
 
@@ -69,6 +78,12 @@ public class Awal extends javax.swing.JFrame {
         vTeller.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_tellerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        login log=new login();
+        log.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +123,7 @@ public class Awal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BACKGROUND;
     private javax.swing.JButton customerService;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton teller;
     // End of variables declaration//GEN-END:variables
 

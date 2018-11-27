@@ -42,7 +42,7 @@ public class viewLainlain extends javax.swing.JFrame {
         batal.setText("Batal");
         getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, 90, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geryn\\Documents\\GitHub\\tubespbo-1\\TUBES\\background\\16.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\16.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 946, -1));
 

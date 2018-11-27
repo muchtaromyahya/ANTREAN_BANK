@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author YAHYA
@@ -39,6 +44,11 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 350, 30));
 
         ok.setText("OK");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 90, 40));
 
         batal.setText("Batal");
@@ -50,6 +60,10 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,4 +107,45 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+    public void addActionListener(ActionListener x) {
+        ok.addActionListener(x);
+        batal.addActionListener(x);
+    }
+
+    public JButton getBatal() {
+        return batal;
+    }
+
+    public void setBatal(JButton batal) {
+        this.batal = batal;
+    }
+
+    public JButton getOk() {
+        return ok;
+    }
+
+    public void setOk(JButton ok) {
+        this.ok = ok;
+    }
+
+    public String getPassword() {
+        return password.getText();
+    }
+
+    public void setPassword(String password) {
+        this.password.setText(password);
+    }
+
+    public String getUsername() {
+        return username.getText();
+    }
+
+    public void setUsername(String username) {
+        this.username.setText(username);
+    }
+    public void showMessage(String message,String tittle, int type) {
+        JOptionPane.showMessageDialog(null, message, tittle, type);
+    }
+    
+    
 }

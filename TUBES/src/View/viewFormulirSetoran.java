@@ -50,7 +50,7 @@ public class viewFormulirSetoran extends javax.swing.JFrame {
         });
         getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 290, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geryn\\Documents\\GitHub\\tubespbo-1\\TUBES\\background\\11.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\10.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 680));
 

@@ -45,17 +45,17 @@ public class viewCustomerService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 270, 30));
-        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 270, 30));
-        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 270, 30));
-        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 270, 30));
-        getContentPane().add(tglLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 270, 30));
-        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 270, 30));
-        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 270, 30));
-        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 270, 30));
+        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 270, 30));
+        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, 270, 30));
+        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 270, 30));
+        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 270, 30));
+        getContentPane().add(tglLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 270, 30));
+        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 270, 30));
+        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 270, 30));
+        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 270, 30));
 
         ok.setText("OK");
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 60, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, 60, 40));
 
         batal.setText("Batal");
         batal.addActionListener(new java.awt.event.ActionListener() {
@@ -63,10 +63,11 @@ public class viewCustomerService extends javax.swing.JFrame {
                 batalActionPerformed(evt);
             }
         });
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 590, 80, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 80, 40));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\12.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 660));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
