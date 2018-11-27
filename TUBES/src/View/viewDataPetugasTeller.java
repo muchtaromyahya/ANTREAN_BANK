@@ -5,17 +5,31 @@
  */
 package View;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author YAHYA
  */
 public class viewDataPetugasTeller extends javax.swing.JFrame {
-
+    public Connection cn;
+    public Statement st;
     /**
-     * Creates new form viewDataPetugasTeller
+     * Creates new form viewDataPetugasCS
      */
+    
     public viewDataPetugasTeller() {
         initComponents();
+        try{
+            cn = DriverManager.getConnection("jdbc://localhost:3306/jdbc:mysql://localhost:3306/teller?zeroDateTimeBehavior=convertToNull","root","");
+            st=cn.createStatement();
+            JOptionPane.showMessageDialog(null, "Connected");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Not Connected");
+        }
     }
 
     /**

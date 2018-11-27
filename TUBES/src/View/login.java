@@ -9,12 +9,12 @@ package View;
  *
  * @author YAHYA
  */
-public class viewBukaRekening extends javax.swing.JFrame {
+public class login extends javax.swing.JFrame {
 
     /**
-     * Creates new form viewBukaRekening
+     * Creates new form login
      */
-    public viewBukaRekening() {
+    public login() {
         initComponents();
     }
 
@@ -27,28 +27,26 @@ public class viewBukaRekening extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jenisRekening = new javax.swing.JComboBox<>();
+        password = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         batal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 250, 30));
-
-        jenisRekening.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jenisRekening.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tabungan", "Tabungan Rencana", "Tabungan Bisnis", "Tabungan Investor", "Tabungan Haji" }));
-        getContentPane().add(jenisRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 190, 40));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 350, 30));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 350, 30));
 
         ok.setText("OK");
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 80, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 90, 40));
 
         batal.setText("Batal");
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, 80, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 80, 40));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\22.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 942, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1087, 711));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -70,20 +68,20 @@ public class viewBukaRekening extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewBukaRekening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewBukaRekening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewBukaRekening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(viewBukaRekening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new viewBukaRekening().setVisible(true);
+                new login().setVisible(true);
             }
         });
     }
@@ -91,8 +89,8 @@ public class viewBukaRekening extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> jenisRekening;
     private javax.swing.JButton ok;
+    private javax.swing.JTextField password;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

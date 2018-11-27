@@ -15,4 +15,11 @@ public class ControllerApp {
     public static void main(String[] args) {
         new Awal();
     }
+    
+    public void loadTable(){
+        
+    }
+    public ControllerApp(){
+  
+    }
 }
