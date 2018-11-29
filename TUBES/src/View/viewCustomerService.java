@@ -8,8 +8,10 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.util.Date;
 
 /**
  *
@@ -33,11 +35,13 @@ public class viewCustomerService extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tahun = new javax.swing.JComboBox<>();
+        tanggal = new javax.swing.JComboBox<>();
+        bulan = new javax.swing.JComboBox<>();
         pendidikanTerakhir = new javax.swing.JTextField();
         noRekening = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
         noTelepon = new javax.swing.JTextField();
-        tglLahir = new javax.swing.JTextField();
         namaWali = new javax.swing.JTextField();
         namaLengkap = new javax.swing.JTextField();
         nik = new javax.swing.JTextField();
@@ -47,14 +51,23 @@ public class viewCustomerService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 270, 30));
-        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 270, 30));
-        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 270, 30));
-        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 270, 30));
-        getContentPane().add(tglLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 270, 30));
-        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 270, 30));
-        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 270, 30));
-        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 270, 30));
+
+        tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tahun", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "" }));
+        getContentPane().add(tahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 70, 30));
+
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tanggal", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, 70, 30));
+
+        bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bulan", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        bulan.setToolTipText("");
+        getContentPane().add(bulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 70, 30));
+        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 270, 30));
+        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 270, 30));
+        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 270, 30));
+        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 270, 30));
+        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 270, 30));
+        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 270, 30));
+        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 270, 30));
 
         ok.setText("OK");
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 60, 40));
@@ -118,6 +131,7 @@ public class viewCustomerService extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat;
     private javax.swing.JButton batal;
+    private javax.swing.JComboBox<String> bulan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField namaLengkap;
     private javax.swing.JTextField namaWali;
@@ -126,7 +140,8 @@ public class viewCustomerService extends javax.swing.JFrame {
     private javax.swing.JTextField noTelepon;
     private javax.swing.JButton ok;
     private javax.swing.JTextField pendidikanTerakhir;
-    private javax.swing.JTextField tglLahir;
+    private javax.swing.JComboBox<String> tahun;
+    private javax.swing.JComboBox<String> tanggal;
     // End of variables declaration//GEN-END:variables
 
     public String getAlamat() {
@@ -193,16 +208,12 @@ public class viewCustomerService extends javax.swing.JFrame {
         this.pendidikanTerakhir.setText(pendidikanTerakhir);
     }
 
-    public String getTglLahir() {
-        return tglLahir.getText();
-    }
-
-    public void setTglLahir(String tglLahir) {
-        this.tglLahir.setText(tglLahir);
-    }
     public void addActionListener(ActionListener x) {
         ok.addActionListener(x);
         batal.addActionListener(x);
+        tahun.addActionListener(x);
+        tanggal.addActionListener(x);
+        bulan.addActionListener(x);
         
     }
 
@@ -213,6 +224,14 @@ public class viewCustomerService extends javax.swing.JFrame {
     public JButton getOk() {
         return ok;
     }
+    public String getDate() {
+
+        String t=tahun.getItemAt(tahun.getSelectedIndex())+"-"+bulan.getSelectedIndex()+"-"+tanggal.getSelectedIndex();
+        return t;
+        
+    }
+    
+    
     
     
 }

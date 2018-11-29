@@ -10,6 +10,7 @@ import Model.DatabaseCS;
 import View.viewCustomerService;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 /**
  *
@@ -28,13 +29,13 @@ public class ControllerCS implements ActionListener {
         Object source=e.getSource();
         if (source.equals(vcs.getOk())) {
             getBtnOk();
-        }
+        } 
     }
     public void getBtnOk()  {
         String nik=vcs.getNik();
         String nama=vcs.getNamaLengkap();
         String wali=vcs.getNamaWali();
-        String tgl=vcs.getTglLahir();
+        String tgl=vcs.getDate();
         String telp=vcs.getNoTelepon();
         String alamat=vcs.getAlamat();
         String no_rek=vcs.getNoRekening();
