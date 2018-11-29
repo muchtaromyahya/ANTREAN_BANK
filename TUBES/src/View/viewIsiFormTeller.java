@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -27,18 +31,26 @@ public class viewIsiFormTeller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        tfNoRek = new javax.swing.JTextField();
+        tfNama = new javax.swing.JTextField();
+        batal = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(tfNoRek, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 260, 40));
+        getContentPane().add(tfNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 260, 40));
+
+        batal.setText("Batal");
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, 40));
+
+        ok.setText("OK");
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 453, 60, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\9.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +91,49 @@ public class viewIsiFormTeller extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton batal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ok;
+    private javax.swing.JTextField tfNama;
+    private javax.swing.JTextField tfNoRek;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBatal() {
+        return batal;
+    }
+
+    public void setBatal(JButton batal) {
+        this.batal = batal;
+    }
+
+    public JButton getOk() {
+        return ok;
+    }
+
+    public void setOk(JButton ok) {
+        this.ok = ok;
+    }
+
+    public String getTfNama() {
+        return tfNama.getText();
+    }
+
+    public void setTfNama(String tfNama) {
+        this.tfNama.setText(tfNama);
+    }
+
+    public String getTfNoRek() {
+        return tfNoRek.getText();
+    }
+
+    public void setTfNoRek(String tfNoRek) {
+        this.tfNoRek.setText(tfNoRek);
+    }
+    
+    public void addActionListener(ActionListener x ) {
+        ok.addActionListener(x);
+        batal.addActionListener(x);
+    }
+
+
 }

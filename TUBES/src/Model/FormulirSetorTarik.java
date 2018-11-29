@@ -10,27 +10,27 @@ package Model;
  * @author YAHYA
  */
 public class FormulirSetorTarik extends Formulir{
-    private boolean isWithdraw;
-    private double jumlahSetorTarik;
+    private String keterangan;
+    private String jumlahSetorTarik;
     private String berita;
+    public static int iterator=0;
     
-    public FormulirSetorTarik(Customer c,String id, boolean isWithdraw, double jumlah, String berita){
+    public FormulirSetorTarik(Customer c,String id, boolean isWithdraw, String jumlah, String berita){
         super(c,id);
         this.berita=berita;
-        this.isWithdraw=isWithdraw;
         this.jumlahSetorTarik=jumlah;
     }
-    public double getJumlahSetorTarik(){
+    public FormulirSetorTarik(Customer c,String jumlahUang,String keterangan,String berita) {
+        super(c,"ST-"+(++iterator));
+        this.jumlahSetorTarik=jumlahUang;
+        this.berita=berita;
+        this.keterangan=keterangan;
+    }
+    public String getJumlahSetorTarik(){
         return jumlahSetorTarik;
     }
-    public void setJumlahSetorTarik(double jumlah){
+    public void setJumlahSetorTarik(String jumlah){
         this.jumlahSetorTarik=jumlah;
-    }
-    public boolean getTarikSetor(){
-        return isWithdraw;
-    }
-    public void setTarikSetor(boolean isWithdraw){
-        this.isWithdraw=isWithdraw;
     }
     public String getBerita(){
         return berita;
@@ -38,4 +38,22 @@ public class FormulirSetorTarik extends Formulir{
     public void setBerita(String berita){
         this.berita=berita;
     }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
+    public static int getIterator() {
+        return iterator;
+    }
+
+    public static void setIterator(int iterator) {
+        FormulirSetorTarik.iterator = iterator;
+    }
+    
+    
 }

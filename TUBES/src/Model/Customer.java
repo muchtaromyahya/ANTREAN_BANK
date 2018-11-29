@@ -51,6 +51,10 @@ public final class Customer extends Prioritas {
         super.setKprioritas(prioritas);
         super.setJprioritas();;
     }
+    public Customer (String nama, String noRek) {
+        setNama(nama);
+        setNoRek(noRek);
+    }
     public String getNama(){
         return nama;
     }

@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -109,4 +114,49 @@ public class viewSetorTarik extends javax.swing.JFrame {
     private javax.swing.JButton ok;
     private javax.swing.JComboBox<String> pilihan;
     // End of variables declaration//GEN-END:variables
+    public void addActionListener(ActionListener x) {
+        ok.addActionListener(x);
+        batal.addActionListener(x);
+        pilihan.addActionListener(x);
+
+        
+    }
+
+    public JButton getBatal() {
+        return batal;
+    }
+
+    public void setBatal(JButton batal) {
+        this.batal = batal;
+    }
+
+    public String getBerita() {
+        return berita.getText();
+    }
+
+    public void setBerita(String berita) {
+        this.berita.setText(berita);
+    }
+
+    public String getJumlahUang() {
+        return jumlahUang.getText();
+    }
+
+    public void setJumlahUang(String jumlahUang) {
+        this.jumlahUang.setText(jumlahUang);
+    }
+
+    public JButton getOk() {
+        return ok;
+    }
+
+    public void setOk(JButton ok) {
+        this.ok = ok;
+    }
+
+    public String getPilihan() {
+        return pilihan.getItemAt(pilihan.getSelectedIndex());
+    }
+    
+
 }

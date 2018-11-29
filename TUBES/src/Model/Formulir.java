@@ -11,30 +11,35 @@ package Model;
  */
 public abstract class Formulir {
     private String namaFormulir;
-    private String nikFormulir;
+    private String noRekFormulir;
     private String idFormulir;
     
     public Formulir(Customer c, String id){
         this.namaFormulir=c.getNama();
-        this.nikFormulir=c.getNik();
+        this.noRekFormulir=c.getNoRek();
         this.idFormulir=id;
     }
     public String getNamaFormulir(){
         return namaFormulir;
     }
-    public String getNikFormulir(){
-        return nikFormulir;
-    }
+
     public String getIdFormulir() {
         return idFormulir;
     }
     public void setNamaFormulir(Customer c) {
         this.namaFormulir=c.getNama();
     }
-    public void setNikFormulir(Customer c) {
-        this.nikFormulir=c.getNik();
-    }
+
     public void setIdFormulir(String idform) {
         this.idFormulir=idform;
     }
+
+    public String getNoRekFormulir() {
+        return noRekFormulir;
+    }
+
+    public void setNoRekFormulir(String noRekFormulir) {
+        this.noRekFormulir = noRekFormulir;
+    }
+    
 }
