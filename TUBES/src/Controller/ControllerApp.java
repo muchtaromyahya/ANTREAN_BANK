@@ -89,6 +89,12 @@ public class ControllerApp implements ActionListener {
             btnLoginAction();
         }
     }
+    public void hakAkses(){
+        log.setEnabled(true);
+        log.getOk().setEnabled(true);
+        log.getBatal().setEnabled(true);
+        
+    }
 
     
 }

@@ -30,7 +30,7 @@ private Connection conn = null;
     
     public void connect(){
         try {
-            String url = "jdbc:mysql://localhost/customer_service";
+            String url = "jdbc:mysql://localhost/data_petugas";
             String user = "root";
             String pass = "";
             conn = DriverManager.getConnection(url, user, pass);
@@ -63,10 +63,10 @@ private Connection conn = null;
     public void loadCustomer() {
         connect();
         try {
-            String query = "SELECT * FROM customer";
+            String query = "SELECT * FROM formulir_cs";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                customer.add(new Customer(rs.getString("nik"),rs.getString("nama_lengkap"),rs.getString("nama_wali"),rs.getString("tgl_lahir"),rs.getString("telp"),rs.getString("alamat"),rs.getString("no_rek"),rs.getString("pendidikan")));
+                customer.add(new Customer(rs.getString("nama_lengkap"),rs.getString("nik"),rs.getString("no_rek"),rs.getString("alamat"),rs.getString("pendidikan"),rs.getString("telp"),rs.getString("tgl_lahir"),rs.getString("nama_wali")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,15 +80,15 @@ private Connection conn = null;
     public void addCustomer(Customer c) {
         connect();
         
-        String query = "INSERT INTO mahasiswa VALUES (";
-            query += "'" + c.getNama()+ "',";
+        String query = "INSERT INTO formulir_cs VALUES (";
             query += "'" + c.getNik()+ "',";
-            query += "'" + c.getNoRek()+ "',";
-            query += "'" + c.getAlamat()+ "',";
-            query += "'" + c.getPendidikan()+ "',";
-            query += "'" + c.getNoHp()+ "',";
+            query += "'" + c.getNama()+ "',";
+            query += "'" + c.getWali()+ "',";
             query += "'" + c.getTglLahir()+ "',";
-            query += "'" + c.getWali()+ "'";
+            query += "'" + c.getNoHp()+ "',";
+            query += "'" + c.getAlamat()+ "',";
+            query += "'" + c.getNoRek()+ "',";
+            query += "'" + c.getPendidikan()+ "'";
             query += ")";
 
         if (manipulate(query)) customer.add(c);

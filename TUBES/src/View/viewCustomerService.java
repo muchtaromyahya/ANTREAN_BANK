@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -45,17 +47,17 @@ public class viewCustomerService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 270, 30));
-        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, 270, 30));
-        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 270, 30));
-        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 270, 30));
-        getContentPane().add(tglLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 270, 30));
-        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 270, 30));
-        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 270, 30));
-        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 270, 30));
+        getContentPane().add(pendidikanTerakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 270, 30));
+        getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 270, 30));
+        getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 270, 30));
+        getContentPane().add(noTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 270, 30));
+        getContentPane().add(tglLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 270, 30));
+        getContentPane().add(namaWali, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 270, 30));
+        getContentPane().add(namaLengkap, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 270, 30));
+        getContentPane().add(nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 270, 30));
 
         ok.setText("OK");
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, 60, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 60, 40));
 
         batal.setText("Batal");
         batal.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +65,7 @@ public class viewCustomerService extends javax.swing.JFrame {
                 batalActionPerformed(evt);
             }
         });
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 80, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 620, 80, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\12.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -127,8 +129,8 @@ public class viewCustomerService extends javax.swing.JFrame {
     private javax.swing.JTextField tglLahir;
     // End of variables declaration//GEN-END:variables
 
-    public JTextField getAlamat() {
-        return alamat;
+    public String getAlamat() {
+        return alamat.getText();
     }
 
     public void setAlamat(JTextField alamat) {
@@ -151,52 +153,66 @@ public class viewCustomerService extends javax.swing.JFrame {
         this.jLabel1 = jLabel1;
     }
 
-    public JTextField getNamaLengkap() {
-        return namaLengkap;
+    public String getNamaLengkap() {
+        return namaLengkap.getText();
     }
 
     public void setNamaLengkap(String namaLengkap) {
         this.namaLengkap.setText(namaLengkap);
     }
 
-    public JTextField getNik() {
-        return nik;
+    public String getNik() {
+        return nik.getText();
     }
 
     public void setNik(String nik) {
         this.nik.setText(nik);
     }
 
-    public JTextField getNoRekening() {
-        return noRekening;
+    public String getNoRekening() {
+        return noRekening.getText();
     }
 
     public void setNoRekening(String noRekening) {
         this.noRekening.setText(noRekening);
     }
 
-    public JTextField getNoTelepon() {
-        return noTelepon;
+    public String getNoTelepon() {
+        return noTelepon.getText();
     }
 
     public void setNoTelepon(String noTelepon) {
         this.noTelepon.setText(noTelepon);
     }
 
-    public JTextField getPendidikanTerakhir() {
-        return pendidikanTerakhir;
+    public String getPendidikanTerakhir() {
+        return pendidikanTerakhir.getText();
     }
 
     public void setPendidikanTerakhir(String pendidikanTerakhir) {
         this.pendidikanTerakhir.setText(pendidikanTerakhir);
     }
 
-    public JTextField getTglLahir() {
-        return tglLahir;
+    public String getTglLahir() {
+        return tglLahir.getText();
     }
 
     public void setTglLahir(String tglLahir) {
         this.tglLahir.setText(tglLahir);
     }
+    public void addActionListener(ActionListener x) {
+        ok.addActionListener(x);
+        batal.addActionListener(x);
+        
+    }
+
+    public String getNamaWali() {
+        return namaWali.getText();
+    }
+
+    public JButton getOk() {
+        return ok;
+    }
+    
     
 }

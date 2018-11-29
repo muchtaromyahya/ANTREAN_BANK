@@ -28,8 +28,7 @@ public class viewTeller extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        setoran = new javax.swing.JButton();
-        penarikan = new javax.swing.JButton();
+        setorTarik = new javax.swing.JButton();
         transfer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,13 +37,12 @@ public class viewTeller extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\8.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 683));
 
-        setoran.addActionListener(new java.awt.event.ActionListener() {
+        setorTarik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setoranActionPerformed(evt);
+                setorTarikActionPerformed(evt);
             }
         });
-        getContentPane().add(setoran, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 590, 70));
-        getContentPane().add(penarikan, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 590, 80));
+        getContentPane().add(setorTarik, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 590, 190));
 
         transfer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,9 +54,9 @@ public class viewTeller extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setoranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setoranActionPerformed
+    private void setorTarikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorTarikActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_setoranActionPerformed
+    }//GEN-LAST:event_setorTarikActionPerformed
 
     private void transferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferActionPerformed
         viewTransfer vTransfer=new viewTransfer();
@@ -103,8 +101,7 @@ public class viewTeller extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton penarikan;
-    private javax.swing.JButton setoran;
+    private javax.swing.JButton setorTarik;
     private javax.swing.JButton transfer;
     // End of variables declaration//GEN-END:variables
 }

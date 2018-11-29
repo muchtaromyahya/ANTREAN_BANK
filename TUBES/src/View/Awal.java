@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -29,7 +30,7 @@ public class Awal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        bLogin = new javax.swing.JButton();
         BACKGROUND = new javax.swing.JLabel();
         customerService = new javax.swing.JButton();
         teller = new javax.swing.JButton();
@@ -38,13 +39,13 @@ public class Awal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 255, 153));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bLogin.setText("Login");
+        bLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(bLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         BACKGROUND.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\7.jpg")); // NOI18N
         BACKGROUND.setText(" ");
@@ -79,11 +80,11 @@ public class Awal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_tellerActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
         login log=new login();
         log.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,8 +123,8 @@ public class Awal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BACKGROUND;
+    private javax.swing.JButton bLogin;
     private javax.swing.JButton customerService;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton teller;
     // End of variables declaration//GEN-END:variables
 
@@ -142,6 +143,18 @@ public class Awal extends javax.swing.JFrame {
     public void setTeller(JButton teller) {
         this.teller = teller;
     }
+    
+        public void addActionListener(ActionListener x) {
+        bLogin.addActionListener(x);
+        customerService.addActionListener(x);
+        teller.addActionListener(x);
+    }
+
+    public JButton getbLogin() {
+        return bLogin;
+    }
+    
+    
 
 
     

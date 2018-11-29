@@ -13,42 +13,49 @@ import java.util.*;
 public class Administrator {
     private String userName;
     private String password;
-    private List<CustomerService> daftarCS;
-    private List<Teller> daftarTeller;
+    private List<Petugas> petugas;
     private int jumTeller;
     private int jumCS;
     
     public Administrator(String userName, String password){
         this.userName=userName;
         this.password=password;
-        daftarCS=new ArrayList();
-        daftarTeller=new ArrayList();
+        petugas=new ArrayList<>();
         
     }
-    public void addCustomer(CustomerService CS){
-        daftarCS.add(CS);
+    public void addCustomerService(Petugas CS){
+        if (CS.getJenisService().equals("Customer Service")) {
+            petugas.add(CS);
+            jumCS++;
+        }
     }
-    public void addTeller(Teller teller){
-        daftarTeller.add(teller);
+    public void addTeller(Petugas teller){
+        if (teller.getJenisService().equals("Teller")) {
+            petugas.add(teller);
+        }
+        jumTeller++;
     }
-    public void removeCS(CustomerService CS){
-        for (CustomerService o:daftarCS) {
-            if (o.equals(CS)) {
-                daftarCS.remove(o);
+    public void removeCS(String CS){
+        for (Petugas o:petugas) {
+            if (o.getJenisService().equals("Customer Service") && o.getIdPetugas().equals(CS)) {
+                petugas.remove(o);
+                jumCS--;
                 break;
             }
         }
     }
-    public void removeTeller(Teller teller){
-        for(Teller o:daftarTeller) {
-            if (o.equals(teller)) {
-                daftarTeller.remove(o);
+    public void removeTeller(String id){
+        for(Petugas o:petugas) {
+            if (o.getJenisService().equals("Teller") && o.getIdPetugas().equals(id)) {
+                petugas.remove(o);
+                jumTeller--;
                 break;
             }
         }
     }
     public void showTeller () {
-        for (Teller o:daftarTeller) {
+        for (Petugas o: petugas) {
+            if (o.getJenisService().equals("Teller"))
             System.out.println("Nama Teller :"+o.getNamaPetugas());
         }
     }
