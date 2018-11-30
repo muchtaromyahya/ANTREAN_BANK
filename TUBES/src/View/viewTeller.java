@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author YAHYA
@@ -34,7 +37,7 @@ public class viewTeller extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\8.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/8.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 683));
 
         setorTarik.addActionListener(new java.awt.event.ActionListener() {
@@ -104,4 +107,29 @@ public class viewTeller extends javax.swing.JFrame {
     private javax.swing.JButton setorTarik;
     private javax.swing.JButton transfer;
     // End of variables declaration//GEN-END:variables
+public JButton getSetorTarik() {
+        return setorTarik;
+    }
+
+    public void setSetorTarik(JButton setorTarik) {
+        this.setorTarik = setorTarik;
+    }
+
+    public JButton getTransfer() {
+        return transfer;
+    }
+
+    public void setTransfer(JButton transfer) {
+        this.transfer = transfer;
+    }
+    public void addActionListener(ActionListener x) {
+        setorTarik.addActionListener(x);
+        transfer.addActionListener(x);
+    }
+
+
+
+
+
+
 }

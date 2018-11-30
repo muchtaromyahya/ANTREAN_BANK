@@ -31,10 +31,12 @@ public class viewIsiFormTeller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         tfNoRek = new javax.swing.JTextField();
         tfNama = new javax.swing.JTextField();
         batal = new javax.swing.JButton();
         ok = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,8 +49,9 @@ public class viewIsiFormTeller extends javax.swing.JFrame {
 
         ok.setText("OK");
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 453, 60, 40));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(829, 140, 90, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\9.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/9.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, -1));
 
@@ -92,7 +95,9 @@ public class viewIsiFormTeller extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batal;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton ok;
     private javax.swing.JTextField tfNama;
     private javax.swing.JTextField tfNoRek;

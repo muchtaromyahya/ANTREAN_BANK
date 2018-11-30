@@ -46,7 +46,7 @@ public class viewLaporanKehilangan extends javax.swing.JFrame {
         Batal.setText("Batal");
         getContentPane().add(Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 70, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\14.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/14.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 944, -1));
 

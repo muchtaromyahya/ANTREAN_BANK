@@ -47,7 +47,7 @@ public class viewBukaRekening extends javax.swing.JFrame {
         batal.setText("Batal");
         getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, 80, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\13.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/13.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 942, -1));
 

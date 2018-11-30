@@ -80,7 +80,7 @@ public class viewCustomerService extends javax.swing.JFrame {
         });
         getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 620, 80, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\12.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/12.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 740));
 

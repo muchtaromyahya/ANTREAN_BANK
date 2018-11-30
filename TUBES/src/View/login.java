@@ -54,7 +54,7 @@ public class login extends javax.swing.JFrame {
         batal.setText("Batal");
         getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 80, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\22.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/22.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1087, 711));
 

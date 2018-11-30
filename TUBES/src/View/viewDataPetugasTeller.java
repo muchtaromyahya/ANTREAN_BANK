@@ -71,7 +71,7 @@ public class viewDataPetugasTeller extends javax.swing.JFrame {
         });
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 660, 100, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\18.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/18.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 964, -1));
 

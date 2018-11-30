@@ -47,7 +47,7 @@ public class Awal extends javax.swing.JFrame {
         });
         getContentPane().add(bLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        BACKGROUND.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\7.jpg")); // NOI18N
+        BACKGROUND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/7.jpg"))); // NOI18N
         BACKGROUND.setText(" ");
         getContentPane().add(BACKGROUND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
 
@@ -69,21 +69,15 @@ public class Awal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void customerServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerServiceActionPerformed
-        viewCustomerService vcs = new viewCustomerService();
-        vcs.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_customerServiceActionPerformed
 
     private void tellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tellerActionPerformed
-        viewTeller vTeller=new viewTeller();
-        vTeller.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_tellerActionPerformed
 
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
-        login log=new login();
-        log.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_bLoginActionPerformed
 
     /**

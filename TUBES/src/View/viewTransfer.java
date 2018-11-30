@@ -51,7 +51,7 @@ public class viewTransfer extends javax.swing.JFrame {
         });
         getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 510, 70, 40));
 
-        background.setIcon(new javax.swing.ImageIcon("E:\\GitHub\\tubespbo\\background\\11.jpg")); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/11.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
