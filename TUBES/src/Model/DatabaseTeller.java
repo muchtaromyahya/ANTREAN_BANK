@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +24,7 @@ public class DatabaseTeller {
     private Statement stmt = null;
     private ResultSet rs = null;
     private ArrayList<Customer> p = new ArrayList<>();
-    private ArrayList<FormulirSetorTarik> fst=new ArrayList<>();
+    private ArrayList<Formulir> fst=new ArrayList<>();
     
     public void connect(){
         try {
@@ -71,7 +72,22 @@ public class DatabaseTeller {
         }
         disconnect();
     }
-    public void addCustomer(Customer c,FormulirSetorTarik fs) {
+    public void loadF() {
+        connect();
+        try {
+            String query = "SELECT * FROM FormulirUntukTeller ";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                fst.add(new FormulirSetorTarik(rs.getString("namaNasabah"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    
+    public void addCustomer(Customer c) {
         connect();
         
         String query = "INSERT INTO formulirteller VALUES (";
@@ -80,18 +96,19 @@ public class DatabaseTeller {
             query += ")";
 
         if (manipulate(query)) p.add(c);
+        else JOptionPane.showMessageDialog(null, "id duplikat", "Error", 0);
         disconnect();
+    }
+    public void addFormSetorTarik(FormulirSetorTarik fs) {
         connect();
-        String query2="INSERT INTO setortarik (namaNasabah,noRek,jumlahUang,keterangan,berita) VALUES (";
+        String query2="INSERT INTO FormulirUntukTeller (namaLengkap,noRek,jumlahUang,Keterangan)  VALUES (";
             query2 += "'" + fs.getNamaFormulir()+ "',";
             query2 += "'" + fs.getNoRekFormulir()+ "',";
             query2 += "'" + fs.getJumlahSetorTarik()+ "',";
-            query2 += "'" + fs.getKeterangan()+ "',";
-            query2 += "'" + fs.getBerita()+ "'";
+            query2 += "'" + fs.getKeterangan()+ "'";
             query2 += ")";
         if(manipulate(query2)) fst.add(fs);
         disconnect();
-        
     }
 
     public ArrayList<Customer> getCustomer() {
@@ -99,10 +116,21 @@ public class DatabaseTeller {
     }
     public DatabaseTeller() {
         loadC();
+        loadF();
     }
 
-    public ArrayList<FormulirSetorTarik> getFormulirSetorTarik() {
+    public ArrayList<Formulir> getFormulir() {
         return fst;
+    }
+        public boolean cekDuplikatID(String noRek){
+        boolean cek = false;
+        for (Customer c : p) {
+            if (c.getNoRek().equals(noRek)){
+                cek = true;
+                break;
+            }
+        }
+        return cek;
     }
     
 }

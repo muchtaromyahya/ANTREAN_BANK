@@ -63,8 +63,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         Customer c=dt.getCustomer().get(dt.getCustomer().size()-1);
         String jum=fst.getJumlahUang();
         String ket=fst.getPilihan();
-        String berita=fst.getBerita();
-        FormulirSetorTarik f=new FormulirSetorTarik(c,jum,ket,berita);
+        FormulirSetorTarik f=new FormulirSetorTarik(c,jum,ket);
         dt.addFormSetorTarik(f);
     }
     
@@ -84,6 +83,6 @@ public class ControllerIsiFormTeller implements ActionListener {
     }
     public void loadTable() {
         dt.getCustomer();
-        dt.getFormulirSetorTarik();
+        dt.getFormulir();
     }
 }

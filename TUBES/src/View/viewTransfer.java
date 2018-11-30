@@ -30,6 +30,8 @@ public class viewTransfer extends javax.swing.JFrame {
         namaBank = new javax.swing.JTextField();
         noRekening = new javax.swing.JTextField();
         jumlahTransfer = new javax.swing.JTextField();
+        jumlahTransfer1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
         batal = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -39,6 +41,10 @@ public class viewTransfer extends javax.swing.JFrame {
         getContentPane().add(namaBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 300, 40));
         getContentPane().add(noRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 300, 40));
         getContentPane().add(jumlahTransfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 300, 40));
+        getContentPane().add(jumlahTransfer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 300, 40));
+
+        jLabel1.setText("Berita");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, -1, -1));
 
         ok.setText("OK");
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 70, 40));
@@ -101,7 +107,9 @@ public class viewTransfer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton batal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jumlahTransfer;
+    private javax.swing.JTextField jumlahTransfer1;
     private javax.swing.JTextField namaBank;
     private javax.swing.JTextField noRekening;
     private javax.swing.JButton ok;

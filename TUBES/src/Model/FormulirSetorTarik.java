@@ -12,18 +12,20 @@ package Model;
 public class FormulirSetorTarik extends Formulir{
     private String keterangan;
     private String jumlahSetorTarik;
-    private String berita;
     public static int iterator=0;
     
     public FormulirSetorTarik(Customer c,String id, boolean isWithdraw, String jumlah, String berita){
         super(c,id);
-        this.berita=berita;
         this.jumlahSetorTarik=jumlah;
     }
-    public FormulirSetorTarik(Customer c,String jumlahUang,String keterangan,String berita) {
+    public FormulirSetorTarik(Customer c,String jumlahUang,String keterangan) {
         super(c,"ST-"+(++iterator));
         this.jumlahSetorTarik=jumlahUang;
-        this.berita=berita;
+        this.keterangan=keterangan;
+    }
+    public FormulirSetorTarik(String nama,String noRek,String jumlahUang,String keterangan) {
+        super(nama,noRek,"ST-"+(++iterator));
+        this.jumlahSetorTarik=jumlahUang;
         this.keterangan=keterangan;
     }
     public String getJumlahSetorTarik(){
@@ -32,13 +34,6 @@ public class FormulirSetorTarik extends Formulir{
     public void setJumlahSetorTarik(String jumlah){
         this.jumlahSetorTarik=jumlah;
     }
-    public String getBerita(){
-        return berita;
-    }
-    public void setBerita(String berita){
-        this.berita=berita;
-    }
-
     public String getKeterangan() {
         return keterangan;
     }

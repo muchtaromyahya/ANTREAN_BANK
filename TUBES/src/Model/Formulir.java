@@ -13,10 +13,16 @@ public abstract class Formulir {
     private String namaFormulir;
     private String noRekFormulir;
     private String idFormulir;
+    public static int iterator=0;
     
     public Formulir(Customer c, String id){
         this.namaFormulir=c.getNama();
         this.noRekFormulir=c.getNoRek();
+        this.idFormulir=id;
+    }
+    public Formulir(String nama,String noRek,String id) {
+        this.namaFormulir=nama;
+        this.noRekFormulir=noRek;
         this.idFormulir=id;
     }
     public String getNamaFormulir(){

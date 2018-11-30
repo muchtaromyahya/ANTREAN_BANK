@@ -34,7 +34,6 @@ public class viewSetorTarik extends javax.swing.JFrame {
 
         pilihan = new javax.swing.JComboBox<>();
         jumlahUang = new javax.swing.JTextField();
-        berita = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         batal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -51,7 +50,6 @@ public class viewSetorTarik extends javax.swing.JFrame {
         });
         getContentPane().add(pilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 90, 40));
         getContentPane().add(jumlahUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 360, 40));
-        getContentPane().add(berita, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 360, 100));
 
         ok.setText("OK");
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 70, 40));
@@ -108,7 +106,6 @@ public class viewSetorTarik extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batal;
-    private javax.swing.JTextField berita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jumlahUang;
     private javax.swing.JButton ok;
@@ -128,14 +125,6 @@ public class viewSetorTarik extends javax.swing.JFrame {
 
     public void setBatal(JButton batal) {
         this.batal = batal;
-    }
-
-    public String getBerita() {
-        return berita.getText();
-    }
-
-    public void setBerita(String berita) {
-        this.berita.setText(berita);
     }
 
     public String getJumlahUang() {
