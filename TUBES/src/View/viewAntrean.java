@@ -52,7 +52,7 @@ public class viewAntrean extends javax.swing.JFrame {
                 antreTellerActionPerformed(evt);
             }
         });
-        getContentPane().add(antreTeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 280, 258));
+        getContentPane().add(antreTeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 1000, 160));
 
         AntreCS.setEditable(false);
         AntreCS.setBackground(new java.awt.Color(51, 102, 255));
@@ -64,9 +64,9 @@ public class viewAntrean extends javax.swing.JFrame {
                 AntreCSActionPerformed(evt);
             }
         });
-        getContentPane().add(AntreCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 280, 258));
+        getContentPane().add(AntreCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 1000, 160));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/48.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/50.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
 

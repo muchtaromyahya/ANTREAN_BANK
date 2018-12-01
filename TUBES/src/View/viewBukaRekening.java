@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -96,4 +101,38 @@ public class viewBukaRekening extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jenisRekening;
     private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBatal() {
+        return batal;
+    }
+
+    public void setBatal(JButton batal) {
+        this.batal = batal;
+    }
+
+    public String getjTextField1() {
+        return jTextField1.getText();
+    }
+
+    public void setjTextField1(String jTextField1) {
+        this.jTextField1.setText(jTextField1);
+    }
+
+    public String getJenisRekening() {
+        return jenisRekening.getItemAt(jenisRekening.getSelectedIndex());
+    }
+
+
+    public JButton getOk() {
+        return ok;
+    }
+
+    public void setOk(JButton ok) {
+        this.ok = ok;
+    }
+    public void addActionListener(ActionListener x) {
+        ok.addActionListener(x);
+        batal.addActionListener(x);
+    }
+
 }

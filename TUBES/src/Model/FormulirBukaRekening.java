@@ -11,13 +11,24 @@ package Model;
  */
 public class FormulirBukaRekening extends Formulir {
     private String jenisRekening;
-    private double setoranAwal;
+    private String setoranAwal;
+    private String keterangan;
     
-    public FormulirBukaRekening(Customer c,String id, String jenisRekening, double setoranAwal){
-        super(c,id);
+    public FormulirBukaRekening(Customer c, String jenisRekening, String setoranAwal,String keterangan){
+        super(c);
         this.jenisRekening=jenisRekening;
         this.setoranAwal=setoranAwal;
+        this.keterangan=keterangan;
     }
+
+    public FormulirBukaRekening(String nama,String id,String jenisRekening, String setoranAwal, String keterangan) {
+        super(nama);
+        this.jenisRekening = jenisRekening;
+        this.setoranAwal = setoranAwal;
+        this.keterangan = keterangan;
+        this.setIdFormulir(id);
+    }
+    
     public String getJenisRekening(){
         return jenisRekening;
         
@@ -25,10 +36,19 @@ public class FormulirBukaRekening extends Formulir {
     public void setJenisRekening(String jenisRekening){
         this.jenisRekening=jenisRekening;
     }
-    public double getSetoranAwal(){
+    public String getSetoranAwal(){
         return setoranAwal;
     }
-    public void setSetoranAwal(double setoranAwal){
+    public void setSetoranAwal(String setoranAwal){
         this.setoranAwal=setoranAwal;
     }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+    
 }

@@ -12,6 +12,7 @@ import Model.DatabaseCS;
 import Model.DatabaseLogin;
 import Model.DatabaseTeller;
 import Model.Formulir;
+import Model.FormulirBukaRekening;
 import Model.FormulirGantiKartu;
 import Model.FormulirKehilangan;
 import Model.FormulirLainlain;
@@ -49,6 +50,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerIsiFormTeller implements ActionListener {
     private Awal Va;
+    private viewBukaRekening vBukaRek;
     private viewLaporanKehilangan vLaporanKehilangan; 
     private DatabaseCS dcs;
     private viewSemuaPetugas vsp;
@@ -175,7 +177,40 @@ public class ControllerIsiFormTeller implements ActionListener {
             addKehilangan();
             vLaporanKehilangan.setVisible(false);
             showAntrean();
+        } else if (source.equals(vPCS.getBukaRekening())) {
+            vBukaRek.setVisible(true);
+            vPCS.setVisible(false);
+        } else if (source.equals(vBukaRek.getOk())) {
+            addBukaRek();
+            vBukaRek.getOk();
+            showAntrean();
+        } else if (source.equals(viewTF.getBatal())) {
+            vt.setVisible(true);
+            viewTF.setVisible(false);
+        } else if (source.equals(vTambahTeller.getBatal())) {
+            vAdmin.setVisible(true);
+            vTambahTeller.setVisible(false);
+        } else if (source.equals(vBukaRek.getBatal())) {
+            vPCS.setVisible(true);
+            vBukaRek.setVisible(false);
+        } else if (source.equals(CSupgrade.getBatal())) {
+            vPCS.setVisible(true);
+            CSupgrade.setVisible(false);
+        } else if (source.equals(vLaporanKehilangan.getBatal())) {
+            vPCS.setVisible(true);
+            vLaporanKehilangan.setVisible(false);
+        } else if (source.equals(vLL.getBatal())) {
+            vPCS.setVisible(true);
+            vLL.setVisible(false);
         }
+    }
+    public void addBukaRek() {
+        Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
+        String jenisKartu=vBukaRek.getJenisRekening();
+        String setor=vBukaRek.getjTextField1();
+        String ket="Buka Rekening";
+        FormulirBukaRekening f=new FormulirBukaRekening(c,jenisKartu,setor,ket);
+        dcs.addFormBuka(f);
     }
     public void addKehilangan() {
         Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
@@ -350,6 +385,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         fst=new viewSetorTarik();
         vt=new viewTeller();
         Va=new Awal();
+        vBukaRek=new viewBukaRekening();
         CSupgrade=new viewUpgradeKartu();
         vLL=new viewLainlain();
         vCS=new viewCustomerService();
@@ -369,6 +405,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         vTambahCS.addActionListener(this);
         vTambahTeller.addActionListener(this);
         antre.addActionListener(this);
+        vBukaRek.addActionListener(this);
         vsp.addActionListener(this);
         log.addActionListener(this);
         vAdmin.addActionListener(this);
@@ -393,7 +430,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         
         DefaultTableModel model = new DefaultTableModel(new String[]{"Nama", "Id", "Alamat", "TglLahir","lamaBekerja"}, 0);
         DefaultTableModel model2 = new DefaultTableModel(new String[]{"Nama", "Id", "Alamat", "TglLahir","lamaBekerja"}, 0);
-        DefaultTableModel modeldcs=new DefaultTableModel(new String[]{ "id",   "Nama", "NoRek", "setoranAwal","tanggalkehilangan","jamKehilangan","sebabKehilangan","noKartu","jenisAwalKartu","upgradeKartu","keperluan","keterangan"}, 0);
+        DefaultTableModel modeldcs=new DefaultTableModel(new String[]{ "id",   "Nama", "NoRek", "setoranAwal","tanggalkehilangan","jamKehilangan","sebabKehilangan","noKartu","jenisAwalKartu","upgradeKartu","keperluan","jenisTabungan","keterangan"}, 0);
         DefaultTableModel modeldt=new DefaultTableModel(new String[]{ "id",   "Nama", "NoRek", "NamaBank","rekTujuan","jumlahUang","berita","keterangan"}, 0);
         ArrayList<Petugas> p = dblog.getPetugas();
         for (Petugas o: p) {
@@ -417,11 +454,14 @@ public class ControllerIsiFormTeller implements ActionListener {
         ArrayList<Formulir> fcs=dcs.getFormulir();
         for (Formulir d:fcs) {
             if (d instanceof FormulirLainlain) {
-                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","","","","",((FormulirLainlain)d).getKeperluan(),((FormulirLainlain)d).getKeterangan()});
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","","","","",((FormulirLainlain)d).getKeperluan(),"",((FormulirLainlain)d).getKeterangan()});
             } else if (d instanceof FormulirGantiKartu) {
-                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","",((FormulirGantiKartu)d).getNoKartu(),((FormulirGantiKartu) d).getJenisAwal(),((FormulirGantiKartu)d).getJenisGanti(),"",((FormulirGantiKartu)d).getKeterangan()});
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","",((FormulirGantiKartu)d).getNoKartu(),((FormulirGantiKartu) d).getJenisAwal(),((FormulirGantiKartu)d).getJenisGanti(),"","",((FormulirGantiKartu)d).getKeterangan()});
             } else if (d instanceof FormulirKehilangan) {
-                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","",((FormulirKehilangan)d).getTanggalKehilangan(),((FormulirKehilangan)d).getJamKehilangan(),((FormulirKehilangan)d).getSebabKehilangan(),"","","","",((FormulirKehilangan)d).getKeterangan()});
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","",((FormulirKehilangan)d).getTanggalKehilangan(),((FormulirKehilangan)d).getJamKehilangan(),((FormulirKehilangan)d).getSebabKehilangan(),"","","","","",((FormulirKehilangan)d).getKeterangan()});
+            } else if (d instanceof FormulirBukaRekening) {
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"",((FormulirBukaRekening)d).getSetoranAwal(),"","","","","","","",((FormulirBukaRekening)d).getJenisRekening(),((FormulirBukaRekening)d).getKeterangan()});
+
             }
         }
         CSview.setTabel(modeldcs);

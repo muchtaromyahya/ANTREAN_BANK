@@ -54,22 +54,22 @@ public class viewDataPetugasTeller extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tahun", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "" }));
-        getContentPane().add(tahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 70, 30));
+        getContentPane().add(tahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 70, 30));
 
         bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bulan", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         bulan.setToolTipText("");
-        getContentPane().add(bulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 70, 30));
+        getContentPane().add(bulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 70, 30));
 
         tanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tanggal", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
-        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 70, 30));
-        getContentPane().add(idPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 340, 30));
-        getContentPane().add(namaPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 340, 30));
-        getContentPane().add(alamatPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 340, 30));
-        getContentPane().add(lamaBekerja, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 540, 340, 30));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 590, 340, 30));
+        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, 70, 30));
+        getContentPane().add(idPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 340, 30));
+        getContentPane().add(namaPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 340, 30));
+        getContentPane().add(alamatPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 340, 30));
+        getContentPane().add(lamaBekerja, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 340, 30));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 340, 30));
 
         batal.setText("Batal");
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 660, 100, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 100, 40));
 
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -77,9 +77,9 @@ public class viewDataPetugasTeller extends javax.swing.JFrame {
                 okActionPerformed(evt);
             }
         });
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 660, 100, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, 100, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/18.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/51.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 964, -1));
 

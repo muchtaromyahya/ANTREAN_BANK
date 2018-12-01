@@ -31,6 +31,7 @@ private Connection conn = null;
         loadLainlain();
         loadGantiKartu();
         loadKehilangan();
+        loadBuka();
     }
     
     public void connect(){
@@ -105,6 +106,7 @@ private Connection conn = null;
             query += "'" + ""+ "',";
             query += "'" + ""+ "',";
             query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
             query += "'" + c.getKeperluan()+ "',";
             query += "'" + c.getKeterangan()+ "'";
             query += ")";
@@ -127,6 +129,7 @@ private Connection conn = null;
             query += "'" + ""+ "',";
             query += "'" + ""+ "',";
             query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
             query += "'" + c.getKeterangan()+ "'";
             query += ")";
 
@@ -140,6 +143,41 @@ private Connection conn = null;
             rs = stmt.executeQuery(query);
             while (rs.next()){
                 f.add(new FormulirKehilangan(rs.getString("nama_lengkap"),rs.getString("id"),rs.getString("sebabKehilangan"),rs.getString("jamKehilangan"),rs.getString("tanggalKehilangan"),rs.getString("keterangan")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    public void addFormBuka(FormulirBukaRekening c) {
+        connect();
+        
+        String query = "INSERT INTO formuliruntukcs VALUES (";
+            query += "'" + c.getIdFormulir()+ "',";
+            query += "'" + c.getNamaFormulir()+ "',";
+            query += "'" + "" + "',";
+            query += "'" + c.getSetoranAwal()+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getJenisRekening()+ "',";
+            query += "'" + c.getKeterangan()+ "'";
+            query += ")";
+
+        if (manipulate(query)) f.add((FormulirBukaRekening)c);
+        disconnect();
+    }
+    public void loadBuka() {
+        connect();
+        try {
+            String query = "SELECT * FROM formuliruntukcs where keterangan='Buka Rekening'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                f.add(new FormulirBukaRekening(rs.getString("nama_lengkap"),rs.getString("id"),rs.getString("jenisTabungan"),rs.getString("SetoranAwal"),rs.getString("keterangan")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,6 +211,7 @@ private Connection conn = null;
             query += "'" + c.getNoKartu()+ "',";
             query += "'" + c.getJenisAwal()+ "',";
             query += "'" + c.getJenisGanti()+ "',";
+            query += "'" + ""+ "',";
             query += "'" + ""+ "',";
             query += "'" + c.getKeterangan()+ "'";
             query += ")";
