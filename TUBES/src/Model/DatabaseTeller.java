@@ -75,10 +75,24 @@ public class DatabaseTeller {
     public void loadF() {
         connect();
         try {
-            String query = "SELECT * FROM FormulirUntukTeller ";
+            String query = "SELECT * FROM FormulirUntukTeller where keterangan='setoran' or keterangan='tarikan'";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                fst.add(new FormulirSetorTarik(rs.getString("namaNasabah"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
+                fst.add(new FormulirSetorTarik(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    public void loadFTR() {
+        connect();
+        try {
+            String query = "SELECT * FROM FormulirUntukTeller where keterangan='transfer'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                fst.add(new FormulirTransfer(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("rekTujuan"),rs.getString("namaBank"),rs.getString("berita"),rs.getString("keterangan")));
             }
             
         } catch (SQLException ex) {
@@ -101,13 +115,32 @@ public class DatabaseTeller {
     }
     public void addFormSetorTarik(FormulirSetorTarik fs) {
         connect();
-        String query2="INSERT INTO FormulirUntukTeller (namaLengkap,noRek,jumlahUang,Keterangan)  VALUES (";
+        String query2="INSERT INTO FormulirUntukTeller VALUES (";
+            query2 += "'" + fs.getIdFormulir()+ "',";
             query2 += "'" + fs.getNamaFormulir()+ "',";
             query2 += "'" + fs.getNoRekFormulir()+ "',";
+            query2 += "'" + "" + "',";
+            query2 += "'" + "" + "',";
             query2 += "'" + fs.getJumlahSetorTarik()+ "',";
+            query2 += "'" + "" + "',";
             query2 += "'" + fs.getKeterangan()+ "'";
             query2 += ")";
-        if(manipulate(query2)) fst.add(fs);
+        if(manipulate(query2)) fst.add((FormulirSetorTarik)fs);
+        disconnect();
+    }
+        public void addFormTransfer(FormulirTransfer fs) {
+        connect();
+        String query2="INSERT INTO FormulirUntukTeller VALUES (";
+            query2 += "'" + fs.getIdFormulir()+ "',";
+            query2 += "'" + fs.getNamaFormulir()+ "',";
+            query2 += "'" + fs.getNoRekFormulir()+ "',";
+            query2 += "'" + fs.getBankTujuan() + "',";
+            query2 += "'" + fs.getRekTujuan() + "',";
+            query2 += "'" + fs.getJumlahTransfer() + "',";
+            query2 += "'" + fs.getBerita() + "',";
+            query2 += "'" + fs.getKeterangan()+ "'";
+            query2 += ")";
+        if(manipulate(query2)) fst.add((FormulirTransfer)fs);
         disconnect();
     }
 
@@ -117,6 +150,7 @@ public class DatabaseTeller {
     public DatabaseTeller() {
         loadC();
         loadF();
+        loadFTR();
     }
 
     public ArrayList<Formulir> getFormulir() {
@@ -131,6 +165,36 @@ public class DatabaseTeller {
             }
         }
         return cek;
+    }
+    public void delForm() {
+        connect();
+        boolean t=false;
+        String query = "DELETE FROM formuliruntukteller WHERE id='" + fst.get(0).getIdFormulir() + "'";
+        String noRek=fst.get(0).getNoRekFormulir();
+        if (manipulate(query)){
+            for (Formulir o:fst) {
+                if (o.getIdFormulir().equals(fst.get(0).getIdFormulir())){
+                    fst.remove(o);
+                    t=true;
+                    JOptionPane.showMessageDialog(null, "Petugas berhasil dihapus", "sukses", 0);
+                    query="DELETE FROM formulirteller WHERE norek=" + noRek + "'";
+                    if(manipulate(query)) {
+                        for (Customer i:p) {
+                            if (i.getNoRek().equals(noRek)) {
+                                p.remove(i);
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            
+        }
+        if (t==false) {
+                JOptionPane.showMessageDialog(null, "id tidak ditemukan", "Error", 0);
+            }
+        
+        disconnect();
     }
     
 }

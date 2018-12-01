@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author YAHYA
@@ -116,4 +118,7 @@ public class viewFormulirTeller extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    public void setTabel(DefaultTableModel tabel) {
+        jTable1.setModel(tabel);
+    }
 }

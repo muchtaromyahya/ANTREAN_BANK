@@ -28,15 +28,21 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
     private void initComponents() {
 
         noKartu = new javax.swing.JTextField();
-        jenisAwalKartu = new javax.swing.JTextField();
-        upgrade = new javax.swing.JTextField();
+        jenisAwalPersen = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(noKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 250, 40));
-        getContentPane().add(jenisAwalKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 250, 40));
-        getContentPane().add(upgrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 250, 40));
+
+        jenisAwalPersen.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jenisAwalPersen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
+        getContentPane().add(jenisAwalPersen, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, 40));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/15.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -81,9 +87,9 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jenisAwalKartu;
+    private javax.swing.JComboBox<String> jenisAwalPersen;
     private javax.swing.JTextField noKartu;
-    private javax.swing.JTextField upgrade;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author YAHYA
@@ -27,12 +30,20 @@ public class viewAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logout = new javax.swing.JButton();
+        dataPetugas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logout.setText("Logout");
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        dataPetugas.setText("Data Petugas");
+        getContentPane().add(dataPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 180, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/26.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -101,8 +112,52 @@ public class viewAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton dataPetugas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton logout;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public void setjButton2(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+    
+    public void addActionListener(ActionListener x) {
+        jButton1.addActionListener(x);
+        jButton2.addActionListener(x);
+        dataPetugas.addActionListener(x);
+        logout.addActionListener(x);
+    }
+
+    public JButton getDataPetugas() {
+        return dataPetugas;
+    }
+
+    public void setDataPetugas(JButton dataPetugas) {
+        this.dataPetugas = dataPetugas;
+    }
+
+    public JButton getLogout() {
+        return logout;
+    }
+
+    public void setLogout(JButton logout) {
+        this.logout = logout;
+    }
+    
+    
+
 }

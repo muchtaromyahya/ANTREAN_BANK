@@ -15,15 +15,17 @@ public abstract class Formulir {
     private String idFormulir;
     public static int iterator=0;
     
-    public Formulir(Customer c, String id){
+    public Formulir(Customer c){
         this.namaFormulir=c.getNama();
         this.noRekFormulir=c.getNoRek();
-        this.idFormulir=id;
+        iterator++;
+        this.idFormulir="F"+(iterator);
     }
-    public Formulir(String nama,String noRek,String id) {
+    public Formulir(String nama,String noRek) {
         this.namaFormulir=nama;
         this.noRekFormulir=noRek;
-        this.idFormulir=id;
+        iterator++;
+        this.idFormulir="F"+(iterator);
     }
     public String getNamaFormulir(){
         return namaFormulir;

@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.CustomerService;
 import Model.DatabaseLogin;
 import Model.Petugas;
+import Model.Teller;
 import View.Awal;
 import View.login;
 import View.viewAdmin;
@@ -68,9 +70,13 @@ public class ControllerApp implements ActionListener {
         ArrayList<Petugas> cs= dblog.getPetugas();
         for (Petugas c:cs) {
             if (c.getIdPetugas().equals(id) && c.getPassword().equals(password)) {
-                jenis=c.getJenisService();
+                if (c instanceof Teller) {
+                    jenis=((Teller) c).getJenis();
+                } else if (c instanceof CustomerService) {
+                    jenis=((CustomerService) c).getJenis();
+                }
                 
-            }
+            } 
         }
         return jenis;      
     }

@@ -48,16 +48,16 @@ public class viewSetorTarik extends javax.swing.JFrame {
                 pilihanActionPerformed(evt);
             }
         });
-        getContentPane().add(pilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 90, 40));
-        getContentPane().add(jumlahUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 360, 40));
+        getContentPane().add(pilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, 40));
+        getContentPane().add(jumlahUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 360, 40));
 
         ok.setText("OK");
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 70, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 70, 40));
 
         batal.setText("Batal");
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 70, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 70, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/10.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/28.JPG"))); // NOI18N
         jLabel1.setText("background");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 941, -1));
         jLabel1.getAccessibleContext().setAccessibleName("");
@@ -145,6 +145,9 @@ public class viewSetorTarik extends javax.swing.JFrame {
 
     public String getPilihan() {
         return pilihan.getItemAt(pilihan.getSelectedIndex());
+    }
+    public void refresh() {
+        jumlahUang.setText("");
     }
     
 

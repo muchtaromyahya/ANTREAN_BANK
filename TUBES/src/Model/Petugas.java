@@ -9,22 +9,20 @@ package Model;
  *
  * @author YAHYA
  */
-public class Petugas {
+public abstract class Petugas {
   private  String idPetugas;
   private String namaPetugas;
   private String alamatPetugas;
   private int lamaBekerja;
   private String tglLahirPetugas;
-  private String jenisService;
   private String password;
 
-    public Petugas(String idPetugas, String password, String namaPetugas, String alamatPetugas, String tglLahirPetugas, int lamaBekerja, String jenisService) {
+    public Petugas(String idPetugas, String password, String namaPetugas, String alamatPetugas, String tglLahirPetugas, int lamaBekerja) {
         this.idPetugas = idPetugas;
         this.namaPetugas = namaPetugas;
         this.alamatPetugas = alamatPetugas;
         this.lamaBekerja = lamaBekerja;
         this.tglLahirPetugas = tglLahirPetugas;
-        this.jenisService = jenisService;
         this.password = password;
     }
   
@@ -61,14 +59,6 @@ public class Petugas {
   public void setTglLahirPetugas(String tgl){
           this.tglLahirPetugas=tgl;
   }
-
-    public String getJenisService() {
-        return jenisService;
-    }
-
-    public void setJenisService(String jenisService) {
-        this.jenisService = jenisService;
-    }
 
     public String getPassword() {
         return password;

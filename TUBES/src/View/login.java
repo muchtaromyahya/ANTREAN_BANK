@@ -146,6 +146,10 @@ public class login extends javax.swing.JFrame {
     public void showMessage(String message,String tittle, int type) {
         JOptionPane.showMessageDialog(null, message, tittle, type);
     }
+    public void refresh() {
+        setPassword("");
+        setUsername("");
+    }
     
     
 }

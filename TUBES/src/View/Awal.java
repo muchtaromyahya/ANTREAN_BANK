@@ -30,6 +30,7 @@ public class Awal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        antrean = new javax.swing.JButton();
         bLogin = new javax.swing.JButton();
         BACKGROUND = new javax.swing.JLabel();
         customerService = new javax.swing.JButton();
@@ -38,6 +39,9 @@ public class Awal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 153));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        antrean.setText("Antrean");
+        getContentPane().add(antrean, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, -1, -1));
 
         bLogin.setText("Login");
         bLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +121,7 @@ public class Awal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BACKGROUND;
+    private javax.swing.JButton antrean;
     private javax.swing.JButton bLogin;
     private javax.swing.JButton customerService;
     private javax.swing.JButton teller;
@@ -142,11 +147,21 @@ public class Awal extends javax.swing.JFrame {
         bLogin.addActionListener(x);
         customerService.addActionListener(x);
         teller.addActionListener(x);
+        antrean.addActionListener(x);
     }
 
     public JButton getbLogin() {
         return bLogin;
     }
+
+    public JButton getAntrean() {
+        return antrean;
+    }
+
+    public void setAntrean(JButton antrean) {
+        this.antrean = antrean;
+    }
+    
     
     
 

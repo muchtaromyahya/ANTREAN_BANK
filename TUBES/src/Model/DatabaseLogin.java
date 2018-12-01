@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,8 @@ public class DatabaseLogin {
 
     public DatabaseLogin() {
         loadCS();
+        loadT();
+        loadA();
     }
     
     public void connect(){
@@ -58,13 +61,39 @@ public class DatabaseLogin {
         }
         return cek;
     }
+        public void loadA() {
+        connect();
+        try {
+            String query = "SELECT * FROM daftarPetugas where jenisService='Admin' ";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                p.add(new Administrator(rs.getString("idPetugas"),rs.getString("password"),rs.getString("namaPetugas"),rs.getString("alamatPetugas"),rs.getString("tanggalLahir"),rs.getInt("lamaBekerja"),rs.getString("jenisService")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
     public void loadCS() {
         connect();
         try {
-            String query = "SELECT * FROM daftarPetugas ";
+            String query = "SELECT * FROM daftarPetugas where jenisService='Customer Service' ";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                p.add(new Petugas(rs.getString("idPetugas"),rs.getString("password"),rs.getString("namaPetugas"),rs.getString("alamatPetugas"),rs.getString("tanggalLahir"),rs.getInt("lamaBekerja"),rs.getString("jenisService")));
+                p.add(new CustomerService(rs.getString("idPetugas"),rs.getString("password"),rs.getString("namaPetugas"),rs.getString("alamatPetugas"),rs.getString("tanggalLahir"),rs.getInt("lamaBekerja"),rs.getString("jenisService")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+        public void loadT() {
+        connect();
+        try {
+            String query = "SELECT * FROM daftarPetugas where jenisService='Teller' ";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                p.add(new Teller(rs.getString("idPetugas"),rs.getString("password"),rs.getString("namaPetugas"),rs.getString("alamatPetugas"),rs.getString("tanggalLahir"),rs.getInt("lamaBekerja"),rs.getString("jenisService")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,6 +105,7 @@ public class DatabaseLogin {
     }
     public void addPetugas(Petugas c) {
         connect();
+
         
         String query = "INSERT INTO daftarPetugas VALUES (";
             query += "'" + c.getIdPetugas()+ "',";
@@ -84,10 +114,24 @@ public class DatabaseLogin {
             query += "'" + c.getAlamatPetugas()+ "',";
             query += "'" + c.getTglLahirPetugas()+ "',";
             query += "'" + c.getLamaBekerja()+ "',";
-            query += "'" + c.getJenisService()+ "'";
+            if (c instanceof Teller) {
+                query += "'" +((Teller) c).getJenis() + "'";
+            } else if (c instanceof CustomerService) {
+                query += "'" +((CustomerService) c).getJenis()+ "'";
+            } else if (c instanceof Administrator) {
+                query += "'" +((Administrator) c).getJenis()+ "'";
+            }
             query += ")";
 
-        if (manipulate(query)) p.add(c);
+        if (manipulate(query)) {
+            if (c instanceof Teller) {
+                p.add((Teller) c);
+            } else if (c instanceof CustomerService) {
+                p.add((CustomerService) c);
+            } else if (c instanceof Administrator) {
+                p.add((Administrator) c);
+            }
+        }
         disconnect();
     }
     public boolean cekDuplikatID(String id){
@@ -99,5 +143,25 @@ public class DatabaseLogin {
             }
         }
         return cek;
+    }
+        public void delPetugas(String id) {
+        connect();
+        boolean t=false;
+        String query = "DELETE FROM daftarpetugas WHERE idPetugas='" + id + "'";
+        if (manipulate(query)){
+            for (Petugas o:p) {
+                if (o.getIdPetugas().equals(id)){
+                    p.remove(o);
+                    t=true;
+                    JOptionPane.showMessageDialog(null, "Petugas berhasil dihapus", "sukses", 0);
+                    break;
+                }
+            }
+            
+        }
+        if (t==false) {
+                JOptionPane.showMessageDialog(null, "id tidak ditemukan", "Error", 0);
+            }
+        disconnect();
     }
 }

@@ -62,9 +62,7 @@ public class viewTeller extends javax.swing.JFrame {
     }//GEN-LAST:event_setorTarikActionPerformed
 
     private void transferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferActionPerformed
-        viewTransfer vTransfer=new viewTransfer();
-        vTransfer.setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_transferActionPerformed
 
     /**
@@ -126,6 +124,8 @@ public JButton getSetorTarik() {
         setorTarik.addActionListener(x);
         transfer.addActionListener(x);
     }
+    
+    
 
 
 

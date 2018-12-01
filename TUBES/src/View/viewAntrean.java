@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -27,30 +31,60 @@ public class viewAntrean extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        isiForm = new javax.swing.JButton();
+        antreTeller = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/20.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        isiForm.setText("Isi Form");
+
+        antreTeller.setEditable(false);
+        antreTeller.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        antreTeller.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        antreTeller.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                antreTellerActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("NOMOR ANTRE TELLER");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(isiForm))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 69, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(isiForm)
+                .addGap(85, 85, 85)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void antreTellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antreTellerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_antreTellerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,6 +122,30 @@ public class viewAntrean extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField antreTeller;
+    private javax.swing.JButton isiForm;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    public void addActionListener(ActionListener x) {
+        isiForm.addActionListener(x);
+    }
+
+    public String getAntreTeller() {
+        return antreTeller.getText();
+    }
+
+    public void setAntreTeller(String antreTeller) {
+        this.antreTeller.setText(antreTeller);
+    }
+
+    public JButton getIsiForm() {
+        return isiForm;
+    }
+
+    public void setIsiForm(JButton isiForm) {
+        this.isiForm = isiForm;
+    }
+    
+
 }

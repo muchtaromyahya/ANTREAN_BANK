@@ -18,6 +18,8 @@ public final class Customer extends Prioritas {
     private String noHp;
     private String tglLahir;
     private String wali;
+    private String id;
+    private static int urut;
     
     public Customer (String nama,String NIK, String alamat, String pendidikan, String noHp, String tglLahir, String wali){
         setNama(nama);
@@ -54,6 +56,7 @@ public final class Customer extends Prioritas {
     public Customer (String nama, String noRek) {
         setNama(nama);
         setNoRek(noRek);
+        
     }
     public String getNama(){
         return nama;

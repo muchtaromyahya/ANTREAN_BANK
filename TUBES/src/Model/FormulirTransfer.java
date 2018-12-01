@@ -10,20 +10,33 @@ package Model;
  * @author YAHYA
  */
 public class FormulirTransfer extends Formulir {
-    private double jumlahTransfer;
+    private String jumlahTransfer;
     private String rekTujuan;
     private String bankTujuan;
+    private String keterangan;
+    private String berita ;
     
-    public FormulirTransfer(Customer c,String id, double jumlah, String rekTujuan, String bankTujuan){
-        super(c,id);
+    public FormulirTransfer(Customer c, String jumlah, String rekTujuan, String bankTujuan,String berita,String keterangan){
+        super(c);
         this.bankTujuan=bankTujuan;
         this.jumlahTransfer=jumlah;
         this.rekTujuan=rekTujuan;
+        this.keterangan=keterangan;
+        this.berita=berita;
     }
-    public double getJumlahTransfer(){
+    public FormulirTransfer(String id,String nama,String norek,String jumlah,String rekTujuan,String bankTujuan,String berita,String keterangan) {
+        super(nama,norek);
+        this.setIdFormulir(id);
+        this.bankTujuan=bankTujuan;
+        this.jumlahTransfer=jumlah;
+        this.rekTujuan=rekTujuan;
+        this.keterangan=keterangan;
+        this.berita=berita;
+    }
+    public String getJumlahTransfer(){
         return jumlahTransfer;
     }
-    public void setJumlahTransfer(int jumlah){
+    public void setJumlahTransfer(String jumlah){
         this.jumlahTransfer= jumlah;
     }
     public String getRekTujuan(){
@@ -38,5 +51,23 @@ public class FormulirTransfer extends Formulir {
     public void setBankTujuan(String bankTujuan){
         this.bankTujuan=bankTujuan;
     }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
+    public String getBerita() {
+        return berita;
+    }
+
+    public void setBerita(String berita) {
+        this.berita = berita;
+    }
+    
+    
     
 }
