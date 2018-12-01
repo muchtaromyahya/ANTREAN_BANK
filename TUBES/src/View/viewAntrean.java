@@ -34,6 +34,8 @@ public class viewAntrean extends javax.swing.JFrame {
         isiForm = new javax.swing.JButton();
         antreTeller = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        AntreCS = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,33 +52,58 @@ public class viewAntrean extends javax.swing.JFrame {
 
         jLabel1.setText("NOMOR ANTRE TELLER");
 
+        AntreCS.setEditable(false);
+        AntreCS.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        AntreCS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        AntreCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AntreCSActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("NOMOR ANTRE CUSTOMER SERVICE");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(isiForm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel1)))
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(isiForm)
+                .addContainerGap(765, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(152, 152, 152))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(115, 115, 115)
+                    .addComponent(AntreCS, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(451, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(isiForm)
-                .addGap(85, 85, 85)
-                .addComponent(jLabel1)
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addContainerGap(375, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(161, 161, 161)
+                    .addComponent(AntreCS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(375, Short.MAX_VALUE)))
         );
 
         pack();
@@ -85,6 +112,10 @@ public class viewAntrean extends javax.swing.JFrame {
     private void antreTellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antreTellerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_antreTellerActionPerformed
+
+    private void AntreCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AntreCSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AntreCSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,9 +153,11 @@ public class viewAntrean extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AntreCS;
     private javax.swing.JTextField antreTeller;
     private javax.swing.JButton isiForm;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
     public void addActionListener(ActionListener x) {
@@ -146,6 +179,15 @@ public class viewAntrean extends javax.swing.JFrame {
     public void setIsiForm(JButton isiForm) {
         this.isiForm = isiForm;
     }
+
+    public String getAntreCS() {
+        return AntreCS.getText();
+    }
+
+    public void setAntreCS(String AntreCS) {
+        this.AntreCS.setText(AntreCS);
+    }
+    
     
 
 }

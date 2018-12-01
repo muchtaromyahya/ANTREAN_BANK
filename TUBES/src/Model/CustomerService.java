@@ -11,9 +11,12 @@ package Model;
  */
 public class CustomerService extends Petugas {
     private String jenis;
+    
     public CustomerService(String idPetugas, String password, String namaPetugas, String alamatPetugas, String tglLahirPetugas, int lamaBekerja,String jenis) {
         super(idPetugas, password, namaPetugas, alamatPetugas, tglLahirPetugas, lamaBekerja);
         this.jenis=jenis;
+        
+        
     }
 
     public String getJenis() {

@@ -8,9 +8,11 @@ package Controller;
 import Model.Administrator;
 import Model.Customer;
 import Model.CustomerService;
+import Model.DatabaseCS;
 import Model.DatabaseLogin;
 import Model.DatabaseTeller;
 import Model.Formulir;
+import Model.FormulirLainlain;
 import Model.FormulirSetorTarik;
 import Model.FormulirTransfer;
 import Model.Petugas;
@@ -19,10 +21,14 @@ import View.Awal;
 import View.login;
 import View.viewAdmin;
 import View.viewAntrean;
+import View.viewCustomerService;
 import View.viewDataPetugasCS;
 import View.viewDataPetugasTeller;
+import View.viewFormulirCS;
 import View.viewFormulirTeller;
 import View.viewIsiFormTeller;
+import View.viewLainlain;
+import View.viewPilihanCS;
 import View.viewSemuaPetugas;
 import View.viewSetorTarik;
 import View.viewTeller;
@@ -39,6 +45,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerIsiFormTeller implements ActionListener {
     private Awal Va;
+    private DatabaseCS dcs;
     private viewSemuaPetugas vsp;
     private viewIsiFormTeller ft;
     private viewSetorTarik fst;
@@ -52,12 +59,16 @@ public class ControllerIsiFormTeller implements ActionListener {
     private viewAntrean antre;
     private viewFormulirTeller tellerview;
     private viewTransfer viewTF;
+    private viewCustomerService vCS;
+    private viewLainlain vLL;
+    private viewPilihanCS vPCS;
+    private viewFormulirCS CSview;
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source=e.getSource();
         if (source.equals(ft.getOk())) {
             btnOkActionPerform1();
-            ft.setVisible(false);
+            
             ft.refresh();
         } else if (source.equals(vt.getSetorTarik())) {
             btnSetorTarikActionPerform();
@@ -120,7 +131,52 @@ public class ControllerIsiFormTeller implements ActionListener {
             log.setVisible(true);
         } else if (source.equals(tellerview.getNext())) {
             lanjutAntrean();
+        } else if (source.equals(Va.getCustomerService())) {
+            Va.setVisible(false);
+            vCS.setVisible(true);
+            
+        } else if (source.equals(vCS.getOk())) {
+            addFormCS();
+            vCS.setVisible(false);
+            vPCS.setVisible(true);
+            
+        } else if (source.equals(vPCS.getLainlain())) {
+            vPCS.setVisible(false);
+            vLL.setVisible(true);
+        } else if (source.equals(vLL.getOk())) {
+            addFormLain();
+            vLL.setVisible(false);
+            showAntrean();
+        } else if (source.equals(vCS.getBatal())) {
+            Va.setVisible(true);
+            vCS.setVisible(false);
+        } else if (source.equals(CSview.getNext())) {
+            hapusFormCS();
+        } else if(source.equals(CSview.getBack())) {
+            CSview.setVisible(false);
+            log.setVisible(true);
         }
+    }
+    public void addFormLain() {
+        Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
+        String keperluan=vLL.getKeterangan();
+        String ket="Lain-lain";
+        FormulirLainlain f =new FormulirLainlain(c,keperluan,ket);
+        dcs.addFormLain(f);
+        
+        
+    }
+    public void addFormCS() {
+        String nik=vCS.getNik();
+        String nama=vCS.getNamaLengkap();
+        String wali=vCS.getNamaWali();
+        String tgl=vCS.getDate();
+        String telp=vCS.getNoTelepon();
+        String alamat=vCS.getAlamat();
+        String no_rek=vCS.getNoRekening();
+        String pendidikan=vCS.getPendidikanTerakhir();
+        Customer C=new Customer(nama,nik,no_rek,alamat,pendidikan, telp,tgl,wali);
+        dcs.addCustomer(C);
     }
     public void lanjutAntrean() {
         loadTable();
@@ -130,8 +186,24 @@ public class ControllerIsiFormTeller implements ActionListener {
     public void showAntrean() {
         loadTable();
         fst.setVisible(false);
-        antre.setVisible(true);    
-        antre.setAntreTeller(dt.getFormulir().get(0).getIdFormulir());
+        antre.setVisible(true);
+        antre.setAntreTeller("");
+        antre.setAntreCS("");
+        if(dcs.getFormulir().isEmpty()==false) {
+            antre.setAntreCS(dcs.getFormulir().get(0).getIdFormulir());
+        }
+        if (dt.getFormulir().isEmpty()==false) {
+            antre.setAntreTeller(dt.getFormulir().get(0).getIdFormulir());
+        }
+        
+            
+            
+        loadTable();
+    }
+    public void hapusFormCS() {
+        loadTable();
+        dcs.delForm();
+        loadTable();
     }
     public void hapusPetugas() {
         String id=vsp.getTfHapus();
@@ -191,6 +263,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         } else {
             dt.addCustomer(c);
             viewTeller();
+            ft.setVisible(false);
         }
         
         
@@ -241,12 +314,20 @@ public class ControllerIsiFormTeller implements ActionListener {
         fst=new viewSetorTarik();
         vt=new viewTeller();
         Va=new Awal();
+        vLL=new viewLainlain();
+        vCS=new viewCustomerService();
+        vPCS=new viewPilihanCS();
         viewTF=new viewTransfer();
         vTambahTeller= new viewDataPetugasTeller();
         vTambahCS=new viewDataPetugasCS();
         vsp=new viewSemuaPetugas();
+        CSview=new viewFormulirCS();
         dblog=new DatabaseLogin();
+        dcs=new DatabaseCS();
+        vPCS.addActionListener(this);
         log=new login();
+        vLL.addActionListener(this);
+        vCS.addActionListener(this);
         vAdmin=new viewAdmin();
         vTambahCS.addActionListener(this);
         vTambahTeller.addActionListener(this);
@@ -267,8 +348,12 @@ public class ControllerIsiFormTeller implements ActionListener {
         dt.getCustomer();
         dt.getFormulir();
         dblog.getPetugas();
+        dcs.getCustomer();
+        dcs.getFormulir();
+        
         DefaultTableModel model = new DefaultTableModel(new String[]{"Nama", "Id", "Alamat", "TglLahir","lamaBekerja"}, 0);
         DefaultTableModel model2 = new DefaultTableModel(new String[]{"Nama", "Id", "Alamat", "TglLahir","lamaBekerja"}, 0);
+        DefaultTableModel modeldcs=new DefaultTableModel(new String[]{ "id",   "Nama", "NoRek", "setoranAwal","tanggalkehilangan","jamKehilangan","sebabKehilangan","noKartu","jenisAwalKartu","upgradeKartu","keperluan","keterangan"}, 0);
         DefaultTableModel modeldt=new DefaultTableModel(new String[]{ "id",   "Nama", "NoRek", "NamaBank","rekTujuan","jumlahUang","berita","keterangan"}, 0);
         ArrayList<Petugas> p = dblog.getPetugas();
         for (Petugas o: p) {
@@ -289,6 +374,13 @@ public class ControllerIsiFormTeller implements ActionListener {
                 modeldt.addRow(new Object[]{s.getIdFormulir(), s.getNamaFormulir(), s.getNoRekFormulir(), "","",((FormulirSetorTarik)s).getJumlahSetorTarik(),"",((FormulirSetorTarik)s).getKeterangan()});
             }
         }
+        ArrayList<Formulir> fcs=dcs.getFormulir();
+        for (Formulir d:fcs) {
+            if (d instanceof FormulirLainlain) {
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","","","","",((FormulirLainlain)d).getKeperluan(),((FormulirLainlain)d).getKeterangan()});
+            }
+        }
+        CSview.setTabel(modeldcs);
         tellerview.setTabel(modeldt);
         vsp.setTabelCustomerService(model2);
         vsp.setTabelTeller(model);
@@ -332,7 +424,8 @@ public class ControllerIsiFormTeller implements ActionListener {
         boolean t=checkLogin(id,password);
         if (t==true) {
             if (getJenis(id,password).equals("Customer Service")) {
-                //goToCs();
+                CSview.setVisible(true);
+                log.setVisible(false);
             } else if (getJenis(id,password).equals("Admin")) {
                 vAdmin.setVisible(t);
                 log.setVisible(false);

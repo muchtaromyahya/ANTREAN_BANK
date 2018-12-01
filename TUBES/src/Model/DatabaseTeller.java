@@ -176,8 +176,8 @@ public class DatabaseTeller {
                 if (o.getIdFormulir().equals(fst.get(0).getIdFormulir())){
                     fst.remove(o);
                     t=true;
-                    JOptionPane.showMessageDialog(null, "Petugas berhasil dihapus", "sukses", 0);
-                    query="DELETE FROM formulirteller WHERE norek=" + noRek + "'";
+                    JOptionPane.showMessageDialog(null, "berhasil ke formulir selanjutnya", "sukses", 0);
+                    query="DELETE FROM formulirteller WHERE norek='" + noRek + "'";
                     if(manipulate(query)) {
                         for (Customer i:p) {
                             if (i.getNoRek().equals(noRek)) {

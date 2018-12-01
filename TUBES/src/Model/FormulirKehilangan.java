@@ -15,7 +15,7 @@ public class FormulirKehilangan extends Formulir {
     private String jamKehilangan;
     
     public FormulirKehilangan( Customer c,String id, String sebabKehilangan, String jamKehilangan, String tanggalKehilangan){
-        super(c,id);
+        super(c);
         this.jamKehilangan=jamKehilangan;
         this.sebabKehilangan=sebabKehilangan;
         this.tanggalKehilangan=tanggalKehilangan;

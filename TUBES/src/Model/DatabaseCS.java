@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,9 +24,11 @@ private Connection conn = null;
     private Statement stmt = null;
     private ResultSet rs = null;
     private ArrayList<Customer> customer = new ArrayList<>();
+    private ArrayList<Formulir> f=new ArrayList<>();
 
     public DatabaseCS() {
         loadCustomer();
+        loadLainlain();
     }
     
     public void connect(){
@@ -73,9 +76,61 @@ private Connection conn = null;
         }
         disconnect();
     }
+    public void loadLainlain() {
+        connect();
+        try {
+            String query = "SELECT * FROM formuliruntukcs where keterangan='Lain-lain'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                f.add(new FormulirLainlain(rs.getString("id"),rs.getString("nama_lengkap"),rs.getString("keperluan"),rs.getString("keterangan")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+        public void addFormLain(FormulirLainlain c) {
+        connect();
+        
+        String query = "INSERT INTO formuliruntukcs VALUES (";
+            query += "'" + c.getIdFormulir()+ "',";
+            query += "'" + c.getNamaFormulir()+ "',";
+            query += "'" + "" + "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getKeperluan()+ "',";
+            query += "'" + c.getKeterangan()+ "'";
+            query += ")";
+
+        if (manipulate(query)) f.add((FormulirLainlain)c);
+        disconnect();
+    }
+    public void loadFormulir() {
+        connect();
+        try {
+            String query = "SELECT * FROM formuliruntukteller";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                f.add(new Formulir(rs.getString("nama_lengkap"),rs.getString("nik"),rs.getString("no_rek"),rs.getString("alamat"),rs.getString("pendidikan"),rs.getString("telp"),rs.getString("tgl_lahir"),rs.getString("nama_wali")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
     public ArrayList<Customer> getCustomer() {
         return customer;
     }
+
+    public ArrayList<Formulir> getFormulir() {
+        return f;
+    }
+    
     
     public void addCustomer(Customer c) {
         connect();
@@ -103,6 +158,36 @@ private Connection conn = null;
             }
         }
         return cek;
+    }
+    public void delForm() {
+        connect();
+        boolean t=false;
+        String query = "DELETE FROM formuliruntukteller WHERE id='" + f.get(0).getIdFormulir() + "'";
+        String noRek=f.get(0).getNamaFormulir();
+        if (manipulate(query)){
+            for (Formulir o:f) {
+                if (o.getIdFormulir().equals(f.get(0).getIdFormulir())){
+                    f.remove(o);
+                    t=true;
+                    JOptionPane.showMessageDialog(null, "berhasil ke formulir selanjutnya", "sukses", 0);
+                    query="DELETE FROM formulir_cs WHERE nama_lengkap='" + noRek + "'";
+                    if(manipulate(query)) {
+                        for (Customer i:customer) {
+                            if (i.getNama().equals(noRek)) {
+                                customer.remove(i);
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            
+        }
+        if (t==false) {
+                JOptionPane.showMessageDialog(null, "id tidak ditemukan", "Error", 0);
+            }
+        
+        disconnect();
     }
     
 }

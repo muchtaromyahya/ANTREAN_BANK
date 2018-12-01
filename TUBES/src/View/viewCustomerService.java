@@ -88,9 +88,7 @@ public class viewCustomerService extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
-       Awal awal=new Awal();
-       awal.setVisible(true);
-       this.setVisible(false);
+
     }//GEN-LAST:event_batalActionPerformed
 
     /**

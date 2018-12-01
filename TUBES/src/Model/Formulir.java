@@ -27,6 +27,11 @@ public abstract class Formulir {
         iterator++;
         this.idFormulir="F"+(iterator);
     }
+    public Formulir(String nama) {
+        this.namaFormulir=nama;
+        iterator++;
+        this.idFormulir="F"+(iterator);
+    }
     public String getNamaFormulir(){
         return namaFormulir;
     }
