@@ -112,7 +112,20 @@ public class ControllerIsiFormTeller implements ActionListener {
             transferOK();
             showAntrean();
             viewTF.refresh();
+        } else if (source.equals(log.getBatal())) {
+            log.setVisible(false);
+            Va.setVisible(true);
+        } else if (source.equals(tellerview.getBack())) {
+            tellerview.setVisible(false);
+            log.setVisible(true);
+        } else if (source.equals(tellerview.getNext())) {
+            lanjutAntrean();
         }
+    }
+    public void lanjutAntrean() {
+        loadTable();
+        dt.delForm();
+        loadTable();
     }
     public void showAntrean() {
         loadTable();
@@ -245,6 +258,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         fst.addActionListener(this);
         ft.addActionListener(this);
         vt.addActionListener(this);
+        tellerview.addActionListener(this);
         viewTF.addActionListener(this);
         Va.setVisible(true);
         loadTable();

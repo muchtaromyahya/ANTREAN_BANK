@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -28,21 +32,27 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
     private void initComponents() {
 
         noKartu = new javax.swing.JTextField();
-        jenisAwalPersen = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jenisAwalKartu = new javax.swing.JComboBox<>();
+        upgradeKe = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        noKartu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noKartuActionPerformed(evt);
+            }
+        });
         getContentPane().add(noKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 250, 40));
 
-        jenisAwalPersen.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jenisAwalPersen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
-        getContentPane().add(jenisAwalPersen, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, 40));
+        jenisAwalKartu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jenisAwalKartu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
+        getContentPane().add(jenisAwalKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, 40));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 40));
+        upgradeKe.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        upgradeKe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
+        getContentPane().add(upgradeKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/15.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -50,6 +60,10 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void noKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noKartuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noKartuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,9 +101,40 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> jenisAwalPersen;
+    private javax.swing.JComboBox<String> jenisAwalKartu;
     private javax.swing.JTextField noKartu;
+    private javax.swing.JComboBox<String> upgradeKe;
     // End of variables declaration//GEN-END:variables
+
+    public JComboBox getJenisAwalKartu() {
+        return jenisAwalKartu;
+    }
+
+    public void setJenisAwalKartu(JComboBox jenisAwalKartu) {
+        this.jenisAwalKartu = jenisAwalKartu;
+    }
+
+    public JTextField getNoKartu() {
+        return noKartu;
+    }
+
+    public void setNoKartu(JTextField noKartu) {
+        this.noKartu = noKartu;
+    }
+
+    public JComboBox<String> getUpgradeKe() {
+        return upgradeKe;
+    }
+
+    public void setUpgradeKe(JComboBox upgradeKe) {
+        this.upgradeKe = upgradeKe;
+    }
+    public void addActionListener(ActionListener x) {
+        noKartu.addActionListener(x);
+        jenisAwalKartu.addActionListener(x);
+        upgradeKe.addActionListener(x);
+    }
+    
+    
 }

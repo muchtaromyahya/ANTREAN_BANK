@@ -30,29 +30,31 @@ public class viewTeller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         setorTarik = new javax.swing.JButton();
         transfer = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/8.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 683));
-
+        setorTarik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/33.jpg"))); // NOI18N
         setorTarik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setorTarikActionPerformed(evt);
             }
         });
-        getContentPane().add(setorTarik, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 590, 190));
+        getContentPane().add(setorTarik, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 570, 150));
 
+        transfer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/35.jpg"))); // NOI18N
         transfer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transferActionPerformed(evt);
             }
         });
-        getContentPane().add(transfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 560, 590, 70));
+        getContentPane().add(transfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 560, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/8.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -27, 1180, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

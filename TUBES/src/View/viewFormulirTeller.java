@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,12 +31,20 @@ public class viewFormulirTeller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        back = new javax.swing.JButton();
+        next = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        back.setText("Back");
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 640, -1, -1));
+
+        next.setText("NEXT");
+        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, -1, -1));
 
         jTable1.setBackground(new java.awt.Color(153, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,11 +124,34 @@ public class viewFormulirTeller extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton next;
     // End of variables declaration//GEN-END:variables
     public void setTabel(DefaultTableModel tabel) {
         jTable1.setModel(tabel);
     }
+    public void addActionListener(ActionListener e) {
+        back.addActionListener(e);
+        next.addActionListener(e);
+    }
+
+    public JButton getBack() {
+        return back;
+    }
+
+    public void setBack(JButton back) {
+        this.back = back;
+    }
+
+    public JButton getNext() {
+        return next;
+    }
+
+    public void setNext(JButton next) {
+        this.next = next;
+    }
+    
 }

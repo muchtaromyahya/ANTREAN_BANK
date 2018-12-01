@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -32,9 +33,9 @@ public class Awal extends javax.swing.JFrame {
 
         antrean = new javax.swing.JButton();
         bLogin = new javax.swing.JButton();
-        BACKGROUND = new javax.swing.JLabel();
         customerService = new javax.swing.JButton();
         teller = new javax.swing.JButton();
+        BACKGROUND = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 153));
@@ -51,23 +52,31 @@ public class Awal extends javax.swing.JFrame {
         });
         getContentPane().add(bLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        BACKGROUND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/7.jpg"))); // NOI18N
-        BACKGROUND.setText(" ");
-        getContentPane().add(BACKGROUND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
-
+        customerService.setBackground(new java.awt.Color(0, 102, 204));
+        customerService.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 48)); // NOI18N
+        customerService.setForeground(new java.awt.Color(255, 255, 255));
+        customerService.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/31.jpg"))); // NOI18N
         customerService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customerServiceActionPerformed(evt);
             }
         });
-        getContentPane().add(customerService, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 230, 170));
+        getContentPane().add(customerService, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 230, 150));
 
+        teller.setBackground(new java.awt.Color(51, 153, 255));
+        teller.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 48)); // NOI18N
+        teller.setForeground(new java.awt.Color(255, 255, 255));
+        teller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/32.jpg"))); // NOI18N
         teller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tellerActionPerformed(evt);
             }
         });
-        getContentPane().add(teller, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 230, 170));
+        getContentPane().add(teller, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 210, 150));
+
+        BACKGROUND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/7.jpg"))); // NOI18N
+        BACKGROUND.setText(" ");
+        getContentPane().add(BACKGROUND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

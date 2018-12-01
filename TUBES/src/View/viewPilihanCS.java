@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author YAHYA
@@ -97,4 +100,44 @@ public class viewPilihanCS extends javax.swing.JFrame {
     private javax.swing.JButton laporanKehilangan;
     private javax.swing.JButton upgrade;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBukaRekening() {
+        return bukaRekening;
+    }
+
+    public void setBukaRekening(JButton bukaRekening) {
+        this.bukaRekening = bukaRekening;
+    }
+
+    public JButton getLainlain() {
+        return lainlain;
+    }
+
+    public void setLainlain(JButton lainlain) {
+        this.lainlain = lainlain;
+    }
+
+    public JButton getLaporanKehilangan() {
+        return laporanKehilangan;
+    }
+
+    public void setLaporanKehilangan(JButton laporanKehilangan) {
+        this.laporanKehilangan = laporanKehilangan;
+    }
+
+    public JButton getUpgrade() {
+        return upgrade;
+    }
+
+    public void setUpgrade(JButton upgrade) {
+        this.upgrade = upgrade;
+    }
+    public void addActionListener(ActionListener x) {
+        bukaRekening.addActionListener(x);
+        lainlain.addActionListener(x);
+        laporanKehilangan.addActionListener(x);
+        upgrade.addActionListener(x);
+    }
+
+   
 }
