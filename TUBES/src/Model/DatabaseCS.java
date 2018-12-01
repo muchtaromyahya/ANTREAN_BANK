@@ -162,7 +162,7 @@ private Connection conn = null;
     public void delForm() {
         connect();
         boolean t=false;
-        String query = "DELETE FROM formuliruntukteller WHERE id='" + f.get(0).getIdFormulir() + "'";
+        String query = "DELETE FROM formuliruntukCS WHERE id='" + f.get(0).getIdFormulir() + "'";
         String noRek=f.get(0).getNamaFormulir();
         if (manipulate(query)){
             for (Formulir o:f) {

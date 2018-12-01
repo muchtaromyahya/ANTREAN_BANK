@@ -340,6 +340,7 @@ public class ControllerIsiFormTeller implements ActionListener {
         ft.addActionListener(this);
         vt.addActionListener(this);
         tellerview.addActionListener(this);
+        CSview.addActionListener(this);
         viewTF.addActionListener(this);
         Va.setVisible(true);
         loadTable();
