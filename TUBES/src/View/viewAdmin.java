@@ -31,10 +31,10 @@ public class viewAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         logout = new javax.swing.JButton();
-        dataPetugas = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        dataPetugas = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -42,28 +42,31 @@ public class viewAdmin extends javax.swing.JFrame {
         logout.setText("Logout");
         getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        dataPetugas.setText("Data Petugas");
-        getContentPane().add(dataPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 180, 200));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/26.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 750));
-
-        jButton1.setText("Tambah Teller");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/40.jpg"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 240, 160));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 240, 160));
 
-        jButton2.setText("Tambah CS");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/41.jpg"))); // NOI18N
+        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 414, 239, 170));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 239, 170));
+
+        dataPetugas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/38.jpg"))); // NOI18N
+        dataPetugas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(dataPetugas, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 250, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/42.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

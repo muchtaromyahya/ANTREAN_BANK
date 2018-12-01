@@ -29,6 +29,8 @@ private Connection conn = null;
     public DatabaseCS() {
         loadCustomer();
         loadLainlain();
+        loadGantiKartu();
+        loadKehilangan();
     }
     
     public void connect(){
@@ -89,7 +91,7 @@ private Connection conn = null;
         }
         disconnect();
     }
-        public void addFormLain(FormulirLainlain c) {
+    public void addFormLain(FormulirLainlain c) {
         connect();
         
         String query = "INSERT INTO formuliruntukcs VALUES (";
@@ -110,25 +112,73 @@ private Connection conn = null;
         if (manipulate(query)) f.add((FormulirLainlain)c);
         disconnect();
     }
-    public void loadFormulir() {
+    public void addFormKehilangan(FormulirKehilangan c) {
+        connect();
+        
+        String query = "INSERT INTO formuliruntukcs VALUES (";
+            query += "'" + c.getIdFormulir()+ "',";
+            query += "'" + c.getNamaFormulir()+ "',";
+            query += "'" + "" + "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getTanggalKehilangan()+ "',";
+            query += "'" + c.getJamKehilangan()+ "',";
+            query += "'" + c.getSebabKehilangan()+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getKeterangan()+ "'";
+            query += ")";
+
+        if (manipulate(query)) f.add((FormulirKehilangan)c);
+        disconnect();
+    }
+    public void loadKehilangan() {
         connect();
         try {
-            String query = "SELECT * FROM formuliruntukteller";
+            String query = "SELECT * FROM formuliruntukcs where keterangan='Kehilangan'";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                f.add(new Formulir(rs.getString("nama_lengkap"),rs.getString("nik"),rs.getString("no_rek"),rs.getString("alamat"),rs.getString("pendidikan"),rs.getString("telp"),rs.getString("tgl_lahir"),rs.getString("nama_wali")));
+                f.add(new FormulirKehilangan(rs.getString("nama_lengkap"),rs.getString("id"),rs.getString("sebabKehilangan"),rs.getString("jamKehilangan"),rs.getString("tanggalKehilangan"),rs.getString("keterangan")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
         }
         disconnect();
     }
-    public ArrayList<Customer> getCustomer() {
-        return customer;
+    public void loadGantiKartu() {
+        connect();
+        try {
+            String query = "SELECT * FROM formuliruntukcs where keterangan='Upgrade Kartu'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                f.add(new FormulirGantiKartu(rs.getString("id"),rs.getString("nama_lengkap"),rs.getString("jenisAwalKartu"),rs.getString("upgradeKartu"),rs.getString("noKartu"),rs.getString("keterangan")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
     }
+        public void addFormGantiKartu(FormulirGantiKartu c) {
+        connect();
+        
+        String query = "INSERT INTO formuliruntukcs VALUES (";
+            query += "'" + c.getIdFormulir()+ "',";
+            query += "'" + c.getNamaFormulir()+ "',";
+            query += "'" + "" + "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getNoKartu()+ "',";
+            query += "'" + c.getJenisAwal()+ "',";
+            query += "'" + c.getJenisGanti()+ "',";
+            query += "'" + ""+ "',";
+            query += "'" + c.getKeterangan()+ "'";
+            query += ")";
 
-    public ArrayList<Formulir> getFormulir() {
-        return f;
+        if (manipulate(query)) f.add((FormulirGantiKartu)c);
+        disconnect();
     }
     
     
@@ -189,5 +239,15 @@ private Connection conn = null;
         
         disconnect();
     }
+
+    public ArrayList<Customer> getCustomer() {
+        return customer;
+    }
+
+    public ArrayList<Formulir> getFormulir() {
+        return f;
+    }
+    
+    
     
 }

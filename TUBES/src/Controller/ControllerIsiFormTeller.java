@@ -12,6 +12,8 @@ import Model.DatabaseCS;
 import Model.DatabaseLogin;
 import Model.DatabaseTeller;
 import Model.Formulir;
+import Model.FormulirGantiKartu;
+import Model.FormulirKehilangan;
 import Model.FormulirLainlain;
 import Model.FormulirSetorTarik;
 import Model.FormulirTransfer;
@@ -33,6 +35,8 @@ import View.viewSemuaPetugas;
 import View.viewSetorTarik;
 import View.viewTeller;
 import View.viewTransfer;
+import View.*;
+import View.viewUpgradeKartu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -45,6 +49,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerIsiFormTeller implements ActionListener {
     private Awal Va;
+    private viewLaporanKehilangan vLaporanKehilangan; 
     private DatabaseCS dcs;
     private viewSemuaPetugas vsp;
     private viewIsiFormTeller ft;
@@ -63,6 +68,7 @@ public class ControllerIsiFormTeller implements ActionListener {
     private viewLainlain vLL;
     private viewPilihanCS vPCS;
     private viewFormulirCS CSview;
+    private viewUpgradeKartu CSupgrade;
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source=e.getSource();
@@ -155,7 +161,30 @@ public class ControllerIsiFormTeller implements ActionListener {
         } else if(source.equals(CSview.getBack())) {
             CSview.setVisible(false);
             log.setVisible(true);
+        } else if (source.equals(vPCS.getUpgrade())) {
+            CSupgrade.setVisible(true);
+            vPCS.setVisible(false);
+        } else if (source.equals(CSupgrade.getOK())) {
+            addFormGanti();
+            CSupgrade.setVisible(false);
+            showAntrean();
+        } else if (source.equals(vPCS.getLaporanKehilangan())) {
+            vLaporanKehilangan.setVisible(true);
+            vPCS.setVisible(false);
+        } else if (source.equals(vLaporanKehilangan.getOk())) {
+            addKehilangan();
+            vLaporanKehilangan.setVisible(false);
+            showAntrean();
         }
+    }
+    public void addKehilangan() {
+        Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
+        String jam=vLaporanKehilangan.getjComboBox1();
+        String tanggal=vLaporanKehilangan.getDate();
+        String sebab=vLaporanKehilangan.getSebabKehilangan();
+        String ket="Kehilangan";
+        FormulirKehilangan f=new FormulirKehilangan(c,sebab,jam,tanggal,ket);
+        dcs.addFormKehilangan(f);
     }
     public void addFormLain() {
         Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
@@ -165,6 +194,15 @@ public class ControllerIsiFormTeller implements ActionListener {
         dcs.addFormLain(f);
         
         
+    }
+    public void addFormGanti() {
+        Customer c=dcs.getCustomer().get(dcs.getCustomer().size()-1);
+        String noKartu=CSupgrade.getNoKartu();
+        String jenisAwal=CSupgrade.getJenisAwalKartu();
+        String jenisAkhir=CSupgrade.getUpgradeKe();
+        String ket="Upgrade Kartu";
+        FormulirGantiKartu f=new FormulirGantiKartu(c,jenisAwal,jenisAkhir,noKartu,ket);
+        dcs.addFormGantiKartu(f);
     }
     public void addFormCS() {
         String nik=vCS.getNik();
@@ -190,14 +228,11 @@ public class ControllerIsiFormTeller implements ActionListener {
         antre.setAntreTeller("");
         antre.setAntreCS("");
         if(dcs.getFormulir().isEmpty()==false) {
-            antre.setAntreCS(dcs.getFormulir().get(0).getIdFormulir());
+            antre.setAntreCS(dcs.getFormulir().get(0).getNamaFormulir());
         }
         if (dt.getFormulir().isEmpty()==false) {
-            antre.setAntreTeller(dt.getFormulir().get(0).getIdFormulir());
+            antre.setAntreTeller(dt.getFormulir().get(0).getNamaFormulir());
         }
-        
-            
-            
         loadTable();
     }
     public void hapusFormCS() {
@@ -309,11 +344,13 @@ public class ControllerIsiFormTeller implements ActionListener {
     public ControllerIsiFormTeller() {
         antre=new viewAntrean();
         tellerview=new viewFormulirTeller();
+        vLaporanKehilangan= new viewLaporanKehilangan();
         ft=new viewIsiFormTeller();
         dt=new DatabaseTeller();
         fst=new viewSetorTarik();
         vt=new viewTeller();
         Va=new Awal();
+        CSupgrade=new viewUpgradeKartu();
         vLL=new viewLainlain();
         vCS=new viewCustomerService();
         vPCS=new viewPilihanCS();
@@ -340,8 +377,10 @@ public class ControllerIsiFormTeller implements ActionListener {
         ft.addActionListener(this);
         vt.addActionListener(this);
         tellerview.addActionListener(this);
+        vLaporanKehilangan.addActionListener(this);
         CSview.addActionListener(this);
         viewTF.addActionListener(this);
+        CSupgrade.addActionListener(this);
         Va.setVisible(true);
         loadTable();
     }
@@ -379,6 +418,10 @@ public class ControllerIsiFormTeller implements ActionListener {
         for (Formulir d:fcs) {
             if (d instanceof FormulirLainlain) {
                 modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","","","","",((FormulirLainlain)d).getKeperluan(),((FormulirLainlain)d).getKeterangan()});
+            } else if (d instanceof FormulirGantiKartu) {
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","","","","",((FormulirGantiKartu)d).getNoKartu(),((FormulirGantiKartu) d).getJenisAwal(),((FormulirGantiKartu)d).getJenisGanti(),"",((FormulirGantiKartu)d).getKeterangan()});
+            } else if (d instanceof FormulirKehilangan) {
+                modeldcs.addRow(new Object[]{d.getIdFormulir(),d.getNamaFormulir(),"","",((FormulirKehilangan)d).getTanggalKehilangan(),((FormulirKehilangan)d).getJamKehilangan(),((FormulirKehilangan)d).getSebabKehilangan(),"","","","",((FormulirKehilangan)d).getKeterangan()});
             }
         }
         CSview.setTabel(modeldcs);

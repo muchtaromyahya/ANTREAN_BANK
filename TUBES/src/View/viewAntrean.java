@@ -33,78 +33,42 @@ public class viewAntrean extends javax.swing.JFrame {
 
         isiForm = new javax.swing.JButton();
         antreTeller = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         AntreCS = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         isiForm.setText("Isi Form");
+        getContentPane().add(isiForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         antreTeller.setEditable(false);
-        antreTeller.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        antreTeller.setBackground(new java.awt.Color(51, 102, 255));
+        antreTeller.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        antreTeller.setForeground(new java.awt.Color(255, 255, 255));
         antreTeller.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         antreTeller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 antreTellerActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("NOMOR ANTRE TELLER");
+        getContentPane().add(antreTeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 280, 258));
 
         AntreCS.setEditable(false);
-        AntreCS.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        AntreCS.setBackground(new java.awt.Color(51, 102, 255));
+        AntreCS.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        AntreCS.setForeground(new java.awt.Color(255, 255, 255));
         AntreCS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         AntreCS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AntreCSActionPerformed(evt);
             }
         });
+        getContentPane().add(AntreCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 280, 258));
 
-        jLabel2.setText("NOMOR ANTRE CUSTOMER SERVICE");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(isiForm)
-                .addContainerGap(765, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(152, 152, 152))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(115, 115, 115)
-                    .addComponent(AntreCS, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(451, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(isiForm)
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(antreTeller, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(161, 161, 161)
-                    .addComponent(AntreCS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(375, Short.MAX_VALUE)))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/48.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,8 +120,7 @@ public class viewAntrean extends javax.swing.JFrame {
     private javax.swing.JTextField AntreCS;
     private javax.swing.JTextField antreTeller;
     private javax.swing.JButton isiForm;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
     public void addActionListener(ActionListener x) {

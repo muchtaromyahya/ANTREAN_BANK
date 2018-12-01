@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -34,6 +35,8 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
         noKartu = new javax.swing.JTextField();
         jenisAwalKartu = new javax.swing.JComboBox<>();
         upgradeKe = new javax.swing.JComboBox<>();
+        Batal = new javax.swing.JButton();
+        OK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +56,12 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
         upgradeKe.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         upgradeKe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATMBiasa", "debitSilver", "debitGold", "debitPlatinum" }));
         getContentPane().add(upgradeKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 40));
+
+        Batal.setText("Batal");
+        getContentPane().add(Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 80, -1));
+
+        OK.setText("OK");
+        getContentPane().add(OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 80, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/15.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -101,40 +110,48 @@ public class viewUpgradeKartu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Batal;
+    private javax.swing.JButton OK;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> jenisAwalKartu;
     private javax.swing.JTextField noKartu;
     private javax.swing.JComboBox<String> upgradeKe;
     // End of variables declaration//GEN-END:variables
 
-    public JComboBox getJenisAwalKartu() {
-        return jenisAwalKartu;
-    }
-
-    public void setJenisAwalKartu(JComboBox jenisAwalKartu) {
-        this.jenisAwalKartu = jenisAwalKartu;
-    }
-
-    public JTextField getNoKartu() {
-        return noKartu;
-    }
-
-    public void setNoKartu(JTextField noKartu) {
-        this.noKartu = noKartu;
-    }
-
-    public JComboBox<String> getUpgradeKe() {
-        return upgradeKe;
-    }
-
-    public void setUpgradeKe(JComboBox upgradeKe) {
-        this.upgradeKe = upgradeKe;
-    }
     public void addActionListener(ActionListener x) {
-        noKartu.addActionListener(x);
-        jenisAwalKartu.addActionListener(x);
-        upgradeKe.addActionListener(x);
+        Batal.addActionListener(x);
+        OK.addActionListener(x);
     }
+
+    public String getJenisAwalKartu() {
+        return jenisAwalKartu.getItemAt(jenisAwalKartu.getSelectedIndex());
+    }
+
+
+
+    public String getNoKartu() {
+        return noKartu.getText();
+    }
+    public String getUpgradeKe() {
+        return upgradeKe.getItemAt(upgradeKe.getSelectedIndex());
+    }
+
+    public JButton getBatal() {
+        return Batal;
+    }
+
+    public void setBatal(JButton Batal) {
+        this.Batal = Batal;
+    }
+
+    public JButton getOK() {
+        return OK;
+    }
+
+    public void setOK(JButton OK) {
+        this.OK = OK;
+    }
+    
     
     
 }

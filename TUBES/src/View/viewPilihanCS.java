@@ -30,33 +30,43 @@ public class viewPilihanCS extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         bukaRekening = new javax.swing.JButton();
         upgrade = new javax.swing.JButton();
         lainlain = new javax.swing.JButton();
         laporanKehilangan = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/24.jpg"))); // NOI18N
+        bukaRekening.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/43.jpg"))); // NOI18N
+        bukaRekening.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(bukaRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 720, 80));
+
+        upgrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/44.jpg"))); // NOI18N
+        upgrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upgradeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(upgrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 720, 80));
+
+        lainlain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/46.jpg"))); // NOI18N
+        getContentPane().add(lainlain, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 590, 720, 80));
+
+        laporanKehilangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/45.jpg"))); // NOI18N
+        getContentPane().add(laporanKehilangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 720, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/47.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 925, -1));
-
-        bukaRekening.setText("jButton1");
-        getContentPane().add(bukaRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 740, 90));
-
-        upgrade.setText("jButton1");
-        getContentPane().add(upgrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 740, 80));
-
-        lainlain.setText("jButton1");
-        getContentPane().add(lainlain, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 610, 720, 80));
-
-        laporanKehilangan.setText("jButton1");
-        getContentPane().add(laporanKehilangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 740, 90));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void upgradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgradeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_upgradeActionPerformed
 
     /**
      * @param args the command line arguments

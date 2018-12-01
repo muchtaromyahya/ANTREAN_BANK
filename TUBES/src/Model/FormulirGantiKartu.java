@@ -13,12 +13,29 @@ public class FormulirGantiKartu extends Formulir {
     private String jenisAwal;
     private String jenisGanti;
     private String noKartu;
+    private String keterangan;
     
-    public FormulirGantiKartu( Customer c,String id, String jenisAwal, String jenisGanti, String noKartu ){
-        super(c,id);
+    public FormulirGantiKartu( Customer c,String id, String jenisAwal, String jenisGanti, String noKartu,String keterangan ){
+        super(c);
         this.jenisAwal=jenisAwal;
         this.jenisGanti=jenisGanti;
         this.noKartu=noKartu;
+        this.keterangan=keterangan;
+        this.setIdFormulir(id);
+    }
+    public FormulirGantiKartu(String id,String nama,String jenisAwal,String jenisGanti,String noKartu,String keterangan) {
+        super(nama);
+        this.jenisAwal=jenisAwal;
+        this.jenisGanti=jenisGanti;
+        this.noKartu=noKartu;
+        this.keterangan=keterangan;
+    }
+        public FormulirGantiKartu( Customer c, String jenisAwal, String jenisGanti, String noKartu,String keterangan ){
+        super(c);
+        this.jenisAwal=jenisAwal;
+        this.jenisGanti=jenisGanti;
+        this.noKartu=noKartu;
+        this.keterangan=keterangan;
     }
     public String getJenisAwal(){
         return jenisAwal;
@@ -38,5 +55,14 @@ public class FormulirGantiKartu extends Formulir {
     public void setNoKartu(String noKartu){
         this.noKartu=noKartu;
     }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+    
  
 }

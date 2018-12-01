@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author YAHYA
@@ -27,18 +32,31 @@ public class viewLaporanKehilangan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tanggalKehilangan = new javax.swing.JTextField();
-        jamKehilangan = new javax.swing.JTextField();
         sebabKehilangan = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        tahun = new javax.swing.JComboBox<>();
+        bulan = new javax.swing.JComboBox<>();
+        tanggal = new javax.swing.JComboBox<>();
         ok = new javax.swing.JButton();
         Batal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(tanggalKehilangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 250, 30));
-        getContentPane().add(jamKehilangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 250, 30));
         getContentPane().add(sebabKehilangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 250, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 70, 30));
+
+        tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tahun", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "" }));
+        getContentPane().add(tahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 70, 30));
+
+        bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bulan", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        bulan.setToolTipText("");
+        getContentPane().add(bulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 70, 30));
+
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tanggal", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 70, 30));
 
         ok.setText("OK");
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 490, 70, 40));
@@ -90,10 +108,46 @@ public class viewLaporanKehilangan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Batal;
+    private javax.swing.JComboBox<String> bulan;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jamKehilangan;
     private javax.swing.JButton ok;
     private javax.swing.JTextField sebabKehilangan;
-    private javax.swing.JTextField tanggalKehilangan;
+    private javax.swing.JComboBox<String> tahun;
+    private javax.swing.JComboBox<String> tanggal;
     // End of variables declaration//GEN-END:variables
+    public String getDate() {
+
+        String t=tahun.getItemAt(tahun.getSelectedIndex())+"-"+bulan.getSelectedIndex()+"-"+tanggal.getSelectedIndex();
+        return t;
+        
+    }
+
+    public JButton getBatal() {
+        return Batal;
+    }
+
+    public String getjComboBox1() {
+        return jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
+    }
+
+    public JButton getOk() {
+        return ok;
+    }
+
+    public String getSebabKehilangan() {
+        return sebabKehilangan.getText();
+    }
+
+    public void setSebabKehilangan(String sebabKehilangan) {
+        this.sebabKehilangan.setText(sebabKehilangan);
+    }
+    public void addActionListener(ActionListener x){
+        ok.addActionListener(x);
+        Batal.addActionListener(x);
+    }
+    
+    
+    
+
 }
