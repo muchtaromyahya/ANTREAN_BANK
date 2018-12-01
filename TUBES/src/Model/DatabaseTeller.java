@@ -152,7 +152,6 @@ public class DatabaseTeller {
         loadC();
         loadF();
         loadFTR();
-        Collections.sort>);
     }
 
     public ArrayList<Formulir> getFormulir() {
