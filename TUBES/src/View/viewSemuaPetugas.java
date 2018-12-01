@@ -39,13 +39,13 @@ public class viewSemuaPetugas extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelCustomerService = new javax.swing.JTable();
         Batal = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         tfHapus = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         hapus = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelTeller.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,6 +60,8 @@ public class viewSemuaPetugas extends javax.swing.JFrame {
         ));
         JScrollPane1.setViewportView(tabelTeller);
 
+        getContentPane().add(JScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 442, 273));
+
         TabelCustomerService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -73,72 +75,21 @@ public class viewSemuaPetugas extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(TabelCustomerService);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, 273));
+
         Batal.setText("Batal");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("DATA PETUGAS");
-
-        jLabel2.setText("HAPUS PETUGAS");
+        getContentPane().add(Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 660, -1, -1));
+        getContentPane().add(tfHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 630, 120, 30));
 
         jLabel3.setText("ID");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 480, -1, -1));
 
         hapus.setText("Hapus");
+        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Batal)
-                        .addGap(83, 83, 83))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(hapus)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(370, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfHapus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(41, 41, 41)
-                .addComponent(hapus)
-                .addGap(29, 29, 29)
-                .addComponent(Batal)
-                .addGap(54, 54, 54))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/36.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 930, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,9 +134,8 @@ public class viewSemuaPetugas extends javax.swing.JFrame {
     private javax.swing.JScrollPane JScrollPane1;
     private javax.swing.JTable TabelCustomerService;
     private javax.swing.JButton hapus;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabelTeller;
     private javax.swing.JTextField tfHapus;

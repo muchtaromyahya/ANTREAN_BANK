@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import View.viewFormulirTeller;
+
 /**
  *
  * @author geryn

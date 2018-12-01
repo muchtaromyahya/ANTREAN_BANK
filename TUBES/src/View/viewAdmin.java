@@ -47,7 +47,7 @@ public class viewAdmin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/26.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 750));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 750));
 
         jButton1.setText("Tambah Teller");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

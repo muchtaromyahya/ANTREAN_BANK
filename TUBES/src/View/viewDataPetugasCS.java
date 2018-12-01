@@ -30,7 +30,6 @@ public class viewDataPetugasCS extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         tanggal = new javax.swing.JComboBox<>();
         bulan = new javax.swing.JComboBox<>();
         tahun = new javax.swing.JComboBox<>();
@@ -46,9 +45,6 @@ public class viewDataPetugasCS extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("tambahin Password dibawah id, hapus jenisService");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 290, 40));
-
         tanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tanggal", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
         getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 70, 30));
 
@@ -58,21 +54,21 @@ public class viewDataPetugasCS extends javax.swing.JFrame {
 
         tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tahun", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "" }));
         getContentPane().add(tahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 70, 30));
-        getContentPane().add(idPetugasCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 350, 30));
-        getContentPane().add(namaPetugasCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 350, 30));
+        getContentPane().add(idPetugasCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 350, 30));
+        getContentPane().add(namaPetugasCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 350, 30));
         getContentPane().add(alamatPetugasCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 350, 30));
         getContentPane().add(lamaBekerjaCS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 540, 350, 30));
-        getContentPane().add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 590, 350, 30));
+        getContentPane().add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 350, 30));
 
         batal.setText("Batal");
-        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 670, 90, 40));
+        getContentPane().add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 610, 90, 40));
 
         ok.setText("OK");
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 670, 90, 40));
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, 90, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/19.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/background/34.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1054, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,7 +115,6 @@ public class viewDataPetugasCS extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> bulan;
     private javax.swing.JTextField idPetugasCS;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField lamaBekerjaCS;
     private javax.swing.JTextField namaPetugasCS;
     private javax.swing.JButton ok;
