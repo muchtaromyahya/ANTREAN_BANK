@@ -9,11 +9,12 @@ package Model;
  *
  * @author YAHYA
  */
-public abstract class Formulir {
+public abstract class Formulir implements Comparable {
     private String namaFormulir;
     private String noRekFormulir;
     private String idFormulir;
     public static int iterator=0;
+    
     
     public Formulir(Customer c){
         this.namaFormulir=c.getNama();
@@ -54,5 +55,4 @@ public abstract class Formulir {
     public void setNoRekFormulir(String noRekFormulir) {
         this.noRekFormulir = noRekFormulir;
     }
-    
 }

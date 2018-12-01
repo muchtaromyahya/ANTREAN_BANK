@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Nov 2018 pada 19.13
+-- Waktu pembuatan: 01 Des 2018 pada 17.19
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `daftarpetugas` (
   `password` varchar(30) NOT NULL,
   `namaPetugas` varchar(255) NOT NULL,
   `alamatPetugas` varchar(255) NOT NULL,
-  `tanggalLahir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tanggalLahir` varchar(25) NOT NULL,
   `lamaBekerja` int(11) NOT NULL,
   `jenisService` enum('Teller','Customer Service','Admin','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -61,9 +61,15 @@ CREATE TABLE `daftarpetugas` (
 --
 
 INSERT INTO `daftarpetugas` (`idPetugas`, `password`, `namaPetugas`, `alamatPetugas`, `tanggalLahir`, `lamaBekerja`, `jenisService`) VALUES
-('admin', 'admin', 'Admin cuy', 'bebas', '2018-11-01 17:00:00', 14, 'Admin'),
-('CS01', 'ttr', 'tutu', 'bdg', '2018-10-31 17:00:00', 10, 'Customer Service'),
-('T01', 'tuturu', 'Tutu Ru', 'Bdg', '2018-11-03 17:00:00', 10, 'Teller');
+('admin1', 'admin', 'Gery Nugroho', 'Bandung', '1999-25-3', 15, 'Admin'),
+('admin2', 'admin', 'Muchtarom yahya', 'bandung', '22-04-99', 15, 'Admin'),
+('admin3', 'admin', 'rayhan', 'batununggal', '26-07-89', 12, 'Admin'),
+('cs1', 'cs', 'yoga', 'cirebon', '25-09-99', 1, 'Customer Service'),
+('cs2', 'cs', 'bayu', 'kontrakan', '25-01-70', 11, 'Customer Service'),
+('cs3', 'cs', 'pal', 'smg', '11-12-98', 21, 'Customer Service'),
+('teller1', 'teller', 'iriyanto', 'sukapura', '05-10-99', 55, 'Teller'),
+('teller2', 'teller', 'shadieq', 'sukabirus', '25-01-98', 32, 'Teller'),
+('teller3', 'teller', 'yogs', 'kalimantan', '25-10-99', 10, 'Teller');
 
 -- --------------------------------------------------------
 
@@ -81,12 +87,55 @@ CREATE TABLE `formulirteller` (
 --
 
 INSERT INTO `formulirteller` (`namaLengkap`, `noRek`) VALUES
-('1', '1'),
-('11', '11'),
-('123', '123'),
-('1233', '1233'),
-('212', '212'),
-('5', '5');
+('1312', '124124'),
+('133', '144');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `formuliruntukcs`
+--
+
+CREATE TABLE `formuliruntukcs` (
+  `id` varchar(25) NOT NULL,
+  `nama_lengkap` varchar(50) NOT NULL,
+  `no_rek` varchar(25) NOT NULL,
+  `SetoranAwal` varchar(25) NOT NULL,
+  `tanggalKehilangan` varchar(10) NOT NULL,
+  `jamKehilangan` varchar(5) NOT NULL,
+  `sebabKehilangan` varchar(255) NOT NULL,
+  `noKartu` varchar(16) NOT NULL,
+  `jenisAwalKartu` varchar(25) NOT NULL,
+  `upgradeKartu` varchar(25) NOT NULL,
+  `keperluan` varchar(255) NOT NULL,
+  `jenisTabungan` varchar(50) NOT NULL,
+  `keterangan` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `formuliruntukteller`
+--
+
+CREATE TABLE `formuliruntukteller` (
+  `id` varchar(25) NOT NULL,
+  `namaLengkap` varchar(50) NOT NULL,
+  `noRek` varchar(25) NOT NULL,
+  `namaBank` varchar(255) NOT NULL,
+  `rekTujuan` varchar(25) NOT NULL,
+  `jumlahUang` varchar(12) NOT NULL,
+  `berita` varchar(255) NOT NULL,
+  `Keterangan` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `formuliruntukteller`
+--
+
+INSERT INTO `formuliruntukteller` (`id`, `namaLengkap`, `noRek`, `namaBank`, `rekTujuan`, `jumlahUang`, `berita`, `Keterangan`) VALUES
+('F1', '133', '144', '', '', '12412', '', 'setoran'),
+('F2', '1312', '124124', '12312', '2133', '12312', '123', 'transfer');
 
 -- --------------------------------------------------------
 
@@ -104,15 +153,6 @@ CREATE TABLE `formulir_cs` (
   `no_rek` varchar(25) NOT NULL,
   `pendidikan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `formulir_cs`
---
-
-INSERT INTO `formulir_cs` (`nik`, `nama_lengkap`, `nama_wali`, `tgl_lahir`, `telp`, `alamat`, `no_rek`, `pendidikan`) VALUES
-('123', '11', '123', '2018-11-09', '123', '123', '123', '123'),
-('123', '123', '123', '1995-2-4', '123', '123', '123', '123'),
-('123', '123', '123', '1995-2-4', '123', '123', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -165,16 +205,6 @@ CREATE TABLE `setortarik` (
   `keterangan` enum('Setoran','Tarikan','','') NOT NULL,
   `berita` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `setortarik`
---
-
-INSERT INTO `setortarik` (`NamaNasabah`, `noRek`, `jumlahUang`, `keterangan`, `berita`) VALUES
-('1233', '1233', '', 'Setoran', ''),
-('5', '5', '', 'Setoran', ''),
-('212', '212', '', 'Setoran', ''),
-('1', '1', '', 'Setoran', '');
 
 -- --------------------------------------------------------
 
@@ -230,6 +260,12 @@ ALTER TABLE `daftarpetugas`
 --
 ALTER TABLE `formulirteller`
   ADD PRIMARY KEY (`noRek`);
+
+--
+-- Indeks untuk tabel `formuliruntukteller`
+--
+ALTER TABLE `formuliruntukteller`
+  ADD KEY `noRek` (`noRek`);
 
 --
 -- Indeks untuk tabel `lainlain`
