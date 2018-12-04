@@ -29,9 +29,9 @@ private Connection conn = null;
     public DatabaseCS() {
         loadCustomer();
         loadLainlain();
-        loadGantiKartu();
-        loadKehilangan();
-        loadBuka();
+//        loadGantiKartu();
+//        loadKehilangan();
+//        loadBuka();
     }
     
     public void connect(){
@@ -85,7 +85,17 @@ private Connection conn = null;
             String query = "SELECT * FROM formuliruntukcs where keterangan='Lain-lain'";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                f.add(new FormulirLainlain(rs.getString("id"),rs.getString("nama_lengkap"),rs.getString("keperluan"),rs.getString("keterangan")));
+                if (rs.getString("keterangan").equals("Lain-lain")) {
+                    f.add(new FormulirLainlain(rs.getString("id"),rs.getString("nama_lengkap"),rs.getString("keperluan"),rs.getString("keterangan")));
+                } else if (rs.getString("keterangan").equals("Kehilangan")) {
+                    f.add(new FormulirKehilangan(rs.getString("nama_lengkap"),rs.getString("id"),rs.getString("sebabKehilangan"),rs.getString("jamKehilangan"),rs.getString("tanggalKehilangan"),rs.getString("keterangan")));
+                } else if (rs.getString("keterangan").equals("Upgrade Kartu")) {
+                    f.add(new FormulirGantiKartu(rs.getString("id"),rs.getString("nama_lengkap"),rs.getString("jenisAwalKartu"),rs.getString("upgradeKartu"),rs.getString("noKartu"),rs.getString("keterangan")));
+                    
+                } else if (rs.getString("keterangan").equals("Buka Rekening")) {
+                    f.add(new FormulirBukaRekening(rs.getString("nama_lengkap"),rs.getString("id"),rs.getString("jenisTabungan"),rs.getString("SetoranAwal"),rs.getString("keterangan")));
+
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);

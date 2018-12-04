@@ -73,27 +73,31 @@ public class DatabaseTeller {
         }
         disconnect();
     }
-    public void loadF() {
-        connect();
-        try {
-            String query = "SELECT * FROM FormulirUntukTeller where keterangan='setoran' or keterangan='tarikan'";
-            rs = stmt.executeQuery(query);
-            while (rs.next()){
-                fst.add(new FormulirSetorTarik(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        disconnect();
-    }
+//    public void loadF() {
+//        connect();
+//        try {
+//            String query = "SELECT * FROM FormulirUntukTeller where keterangan='setoran' or keterangan='tarikan'";
+//            rs = stmt.executeQuery(query);
+//            while (rs.next()){
+//                fst.add(new FormulirSetorTarik(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
+//            }
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DatabaseCS.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        disconnect();
+//    }
     public void loadFTR() {
         connect();
         try {
-            String query = "SELECT * FROM FormulirUntukTeller where keterangan='transfer'";
+            String query = "SELECT * FROM FormulirUntukTeller";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                fst.add(new FormulirTransfer(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("rekTujuan"),rs.getString("namaBank"),rs.getString("berita"),rs.getString("keterangan")));
+                if (rs.getString("keterangan").equals("transfer")) {
+                    fst.add(new FormulirTransfer(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("rekTujuan"),rs.getString("namaBank"),rs.getString("berita"),rs.getString("keterangan")));
+                } else if (rs.getString("keterangan").equals("setoran") || rs.getString("keterangan").equals("tarikan")) {
+                    fst.add(new FormulirSetorTarik(rs.getString("id"),rs.getString("namaLengkap"),rs.getString("noRek"),rs.getString("jumlahUang"),rs.getString("keterangan")));
+                }
             }
             
         } catch (SQLException ex) {
@@ -150,7 +154,7 @@ public class DatabaseTeller {
     }
     public DatabaseTeller() {
         loadC();
-        loadF();
+//        loadF();
         loadFTR();
     }
 
